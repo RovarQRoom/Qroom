@@ -1,0 +1,109 @@
+/* ---------------------footer ------------------ */
+.footer {
+  background-color: #141414e7;
+  color: white;
+  height: 100%;
+  position: relative;
+  margin-top: 60px;
+}
+.footer .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer .footer-content .footer-section {
+  flex: 1;
+  padding: 30px;
+}
+
+.footer-section ul {
+  width: 170px;
+}
+.footer .footer-bottom {
+  background-color: #2b2727e7;
+  color: #ffffff;
+  height: 10%;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-top: 10px;
+  font-size: 1.3rem;
+}
+.footer .footer-content h1,
+.footer .footer-content h2 {
+  color: white;
+  font-size: 2rem;
+  word-spacing: 1rem;
+  margin-bottom: 1rem;
+}
+.footer-p {
+  font-size: 1.75rem;
+  padding-left: 0.5rem;
+}
+#phone-footer {
+  color: rgb(255, 123, 0);
+  font-size: 2rem;
+}
+.logo-text span {
+  color: rgb(245, 131, 0);
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+.footer .footer-content .about-footer .contact span {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+.footer .footer-content .about-footer .social a {
+  border: 1px solid gray;
+  width: 45px;
+  height: 41px;
+  padding-top: 1px;
+  text-align: center;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+.footer .footer-content .about-footer .social a:hover {
+  border: 1px solid white;
+  color: rgb(255, 136, 0);
+  transition: all 0.4s;
+}
+.footer .footer-content .links ul a {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.7rem;
+  color: white;
+  text-decoration: none;
+  list-style: none;
+  transition: all 0.3s;
+  padding: 0.5rem 0;
+}
+.footer .footer-content .links a i {
+  padding-right: 0.5rem;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+#footer-link-section {
+  color: rgb(255, 153, 0);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.footer .footer-content .links ul a:hover {
+  color: rgb(255, 136, 0);
+}
+.footer .footer-content .links ul a:hover i {
+  padding-right: 1.5rem;
+}
+#iframe-footer {
+  height: 21.5rem;
+  width: 42.5rem;
+  filter: grayscale(0.3);
+}

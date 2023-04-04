@@ -1,0 +1,49 @@
+<header class="header">
+    <a href="/HighCrest" class="logo"> <i class="fas fa-concierge-bell"></i> HighCrest </a>
+    <nav class="navbar" id="navbar">
+        <a href="/HighCrest/Home">HOME</a>
+        <a href="/HighCrest/AllRooms">ROOMS</a>
+        <a href="/HighCrest/Blog">BLOG</a>
+        <a href="/HighCrest/Restaurant">RESTAURANT</a>
+        <a href="/HighCrest/About">ABOUT</a>
+        <a href="/HighCrest/Events">EVENTS</a>
+        <a href="/HighCrest/Contact">CONTACT</a>
+        <!-- <button class="btn-booking">BOOK NOW</button> -->
+    </nav>
+
+    <div class="profile">
+        <% if(Image!=undefined){ %>
+            <div id="nav__login-btn" style="padding-right:10px;"><img width="50px" height="50px"
+                    src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %> "
+                    style=" border: 5px solid #0082e6;border-radius: 50%;" alt="ProfileImage">
+            </div>
+            <% }else{ %>
+                <div id="nav__login-btn" class="fas fa-user" style="padding-right:10px;"></div>
+                <% } %>
+    </div>
+    <div class="center-box-booking">
+        <i class="fas fa-bars bars_mardinn" id="bars"></i>
+        <input type="checkbox" id="show">
+        <label for="show" class="show-btn">Book Now</label>
+
+        <div class="container">
+            <label for="show" class="close-btn fas fa-times"></label>
+            <div class="text">Booking </div>
+            <form action="">
+                <div class="data">
+                    <label for="">Check-In-Date</label>
+                    <input type="text" placeholder="10/10/2021">
+                </div>
+                <div class="data">
+                    <label for="">Check-Out-Date</label>
+                    <input type="text" placeholder="20/10/2021">
+                </div>
+                <div class="btn">
+                    <div class="inner">
+                        <button><a href="/HighCrest/AllRooms" style="color: white;">Available</a></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>

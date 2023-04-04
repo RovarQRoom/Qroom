@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= locals.title ? title : "Signup" %>
+    </title>
+    <link rel="stylesheet" href="../../CSS/Signup_CSS/singup-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="shortcut icon" href="../../All Images/Signup_Images/image/singin.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <img src="https://images.pexels.com/photos/3826666/pexels-photo-3826666.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-singup">
+    <div class="wrapper">
+        <header>Sign Up Form</header>
+        <form action="/Signup">
+            <div class="name error"></div>
+            <div class="field name">
+                <div class="input-area">
+                    <input id="in-name" type="text" placeholder="Your Name" name="NameReg">
+                    <i class="icon fas fa-user"></i>
+                </div>
+            </div>
+
+            <div class="email error"></div>
+            <div class="field email">
+                <div class="input-area">
+                    <input type="email" id="email in-email" placeholder="Your Email" name="EmailReg">
+                    <i class="icon fas fa-mail-bulk"></i>
+                </div>
+            </div>
+
+            <div class="password error"></div>
+            <div class="field password">
+                <div class="input-area">
+                    <input type="password" placeholder="Password" name="PasswordReg">
+                    <i class="icon fas fa-lock"></i>
+                </div>
+            </div>
+
+            <div class="confirmpass error"></div>
+            <div class="field password">
+                <div class="input-area">
+                    <input type="password" placeholder="Confirm Password" name="ConfirmReg">
+                    <i class="icon fas fa-unlock"></i>
+                </div>
+            </div>
+
+            <div class="phone error"></div>
+            <div class="field phone">
+                <div class="input-area">
+                    <input type="text" id="in-Phone" placeholder="Enter Your Phone" name="PhonenumberReg" value="07">
+                    <i class="icon fas fa-phone-alt"></i>
+                    <select id="country" style="display: none;">
+                        <option value="IQ">&#x1F1EE;&#x1F1F6; Iraq</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="birthday error"></div>
+            <div class="field birthday">
+                <div class="input-area">
+                    <i class="error error-icon fas fa-exclamation-circle"></i>
+                    <input type="date" id="in-Birth" placeholder="Enter Your Birthday" name="DateofBirthReg">
+                    <i class="icon fas fa-calendar"></i>
+                </div>
+            </div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const nameError = document.querySelector('.name.error');
+        const emailError = document.querySelector('.email.error');
+        const passwordError = document.querySelector('.password.error');
+        const confirmPassError = document.querySelector('.confirmpass.error');
+        const phonenumberError = document.querySelector('.phone.error');
+        const birthdayError = document.querySelector('.birthday.error');
+
+        form.addEventListener('submit', async(e) => {
+            e.preventDefault();
+
+            // Reset Errors
+            nameError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            phonenumberError.textContent = '';
+            birthdayError.textContent = '';
+
+            //Get Values 
+            const email = form.EmailReg.value;
+            const password = form.PasswordReg.value;
+            const confirmPass = form.ConfirmReg.value;
+            const name = form.NameReg.value;
+            const phoneNumber = form.PhonenumberReg.value;
+            const dateofBirth = form.DateofBirthReg.value;
+
+            const datafiles = {
+                name,
+                email,
+                password,
+                phoneNumber,
+                dateofBirth
+            };
+
+            try {
+                const res = await fetch('/Signup', {
+                    method: 'POST',
+                    body: JSON.stringify(datafiles),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await res.json();
+                console.log(data);
+
+                const Confirmer = false;
+                if (confirmPass != password) {
+                    confirmPassError.textContent = "The Password Doesn't Match";
+                    Confirmer = true;
+                }
+
+                if (data.errors || Confirmer) {
+                    nameError.textContent = data.errors.name;
+                    emailError.textContent = data.errors.email;
+                    passwordError.textContent = data.errors.password;
+                    phonenumberError.textContent = data.errors.phoneNumber;
+                    birthdayError.textContent = data.errors.dateOfBirth;
+                } else if (data.user) {
+                    location.assign("/Home");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        })
+    </script>
+
+    <script src="../../javaScript/Signup_Scripts/PhoneField_Scripts/cleave.js"></script>
+    <script src="../../javaScript/Signup_Scripts/PhoneField_Scripts/cleave-phone.i18n.js"></script>
+    <script>
+        var cleave = new Cleave("#in-Phone", {
+            phone: true,
+            phoneRegionCode: "IQ"
+        });
+        $("#Select Country").change(function() {
+            cleave.setPhoneRegionCode(this.value);
+            cleave.setRawValue('');
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+}
+section {
+  overflow: hidden;
+}
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #222;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #fa7b04;
+}
+.btn-booking {
+  width: 140px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #666;
+  font-family: "Noto serif", "serif";
+  position: relative;
+  transition: all 0.5s;
+  z-index: 1;
+  margin-left: 23rem;
+}
+.btn-booking::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: rgba(255, 136, 1, 0.897);
+  z-index: -1;
+  transition: all 0.5s;
+  border-radius: 1rem;
+}
+.btn-booking:hover::before {
+  width: 100%;
+}
+
+.btn-booking:hover {
+  color: #ffffff;
+}
+
+.btn-booking:active:before {
+  background: #b9b9b9;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1rem 3%;
+}
+
+.header .logo {
+  font-size: 1.6rem;
+  font-weight: bolder;
+  color: #222;
+  font-family: "Noto serif", "serif";
+  text-decoration: none;
+}
+
+.header .logo i {
+  color: #ff7b00d2;
+}
+.header .navbar a {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0.6rem;
+  text-decoration: none;
+  font-family: "serif";
+}
+.header .navbar a:hover {
+  color: #ff7b00d2;
+}
+
+/* ---------------Navbar End------------------- */
+
+.contact-bg {
+  height: 65vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.767), rgba(0, 0, 0, 0.842)),
+    url("../../../All Images/HighCrest_Images/Contact/image/contact-bg.jpg");
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contact-bg h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.contact-bg h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  letter-spacing: 4px;
+}
+.line div {
+  margin: 0 0.2rem;
+}
+.line div:nth-child(1),
+.line div:nth-child(3) {
+  height: 3px;
+  width: 150px;
+  background: #ff6600c7;
+  border-radius: 5px;
+}
+.line {
+  display: flex;
+  align-items: center;
+}
+.line div:nth-child(2) {
+  width: 10px;
+  height: 10px;
+  background: #ff6600c7;
+  border-radius: 50%;
+}
+.text {
+  font-weight: 300;
+  opacity: 0.9;
+  font-size: 1.3rem;
+}
+.contact-bg .text {
+  margin: 1.6rem 0;
+}
+.contact-body {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.contact-info {
+  margin: 2rem 0;
+  text-align: center;
+  padding: 2rem 0;
+}
+.contact-info span {
+  display: block;
+}
+.contact-info div {
+  margin: 0.8rem 0;
+  padding: 1rem;
+}
+.contact-info span .fas {
+  font-size: 5rem;
+  padding-bottom: 0.9rem;
+  color: #ff7300c2;
+}
+.contact-info div span:nth-child(2) {
+  font-weight: 500;
+  font-size: 2 rem;
+}
+.contact-info .text {
+  padding-top: 0.4rem;
+}
+.contact-form {
+  padding: 5rem 0;
+  border-top: 3px solid #ff990093;
+}
+.contact-form form {
+  padding-bottom: 1rem;
+}
+.form-control {
+  width: 100%;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 5px;
+  padding: 0.7rem;
+  margin: 0.6rem 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  outline: 0;
+}
+.form-control:focus {
+  box-shadow: 0 0 6px -3px rgba(48, 48, 48, 1);
+}
+.contact-form form div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0.6rem;
+}
+.send-btn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+  background: #ff6600c7;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.send-btn:hover {
+  opacity: 0.8;
+}
+.contact-form > div img {
+  width: 85%;
+}
+.contact-form > div {
+  margin: 0 auto;
+  text-align: center;
+}
+.contact-footer {
+  padding: 2rem 0;
+  background: #000;
+}
+.contact-footer h3 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+}
+.social-links a {
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.4rem;
+  transition: all 0.4s ease;
+}
+.social-links a:hover {
+  color: #f7327a;
+  border-color: #f7327a;
+}
+
+/* ---------x------- Main Content -----x----- */
+
+.footer {
+  background: rgb(34, 33, 33);
+  margin-top: 0.9rem;
+  height: 50vh;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 1rem 0;
+  padding-left: 2rem;
+  font-family: "Noto serif", "serif";
+}
+.footer .box-container .box .news {
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 1rem 0;
+  font-family: "Noto serif", "serif";
+}
+.footer .box-container .box p {
+  font-size: 2rem;
+  color: rgb(240, 233, 233);
+}
+.footer .box-container .box a {
+  font-size: 2rem;
+  color: rgb(255, 250, 250);
+  padding: 1rem 0;
+  display: block;
+  text-decoration: none;
+}
+
+.footer .box-container .box a:hover {
+  color: #ff9900;
+  -webkit-transition: 0.6s ease;
+  -moz-transition: 0.6s ease;
+  -ms-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.footer .box-container .box a:hover i {
+  padding-right: 1rem;
+  -webkit-transition: 0.6s ease;
+  -moz-transition: 0.6s ease;
+  -ms-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.footer .box-container .box a i {
+  padding-left: 2rem;
+  color: #ff9900;
+}
+.footer .box-container .box form input[type="email"] {
+  width: 80%;
+  padding: 1rem 1.2rem;
+  font-size: 2rem;
+  color: #222;
+  margin: 1rem 0;
+  text-transform: none;
+}
+.btn-one {
+  color: rgba(255, 123, 0, 0.801);
+  transition: all 0.3s;
+  position: relative;
+  font-size: 2rem;
+  padding-left: 0.4rem;
+}
+.btn-one span {
+  transition: all 0.3s;
+}
+.btn-one::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+.btn-one:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.btn-one::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.btn-one:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+.footer .box-container .box .payment {
+  width: 80%;
+  margin-top: 2rem;
+}
+.credit {
+  text-align: center;
+  background: rgb(29, 28, 28);
+  color: #fff;
+  font-size: 2rem;
+  padding: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-bg .text {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .contact-bg .text {
+    width: 50%;
+  }
+  .contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contact-info {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

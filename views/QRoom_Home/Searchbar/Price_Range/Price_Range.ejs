@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <link rel="stylesheet" href="CSS/Search_CSS/nav.css">
+    <link rel="stylesheet" href="CSS/Search_CSS/StarsRating/stars.css">
+    <link rel="stylesheet" href="CSS/Search_CSS/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" href="All Images/Serach_Images/images/logo.png">
+
+    <!-- BoxIcons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Stars Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="CSS/Search_CSS/Price_Range/price_range_style.css">
+    <script src="javaScript/Search_Scripts/Price_Range/price_range_script.js"></script>
+</head>
+
+<body>
+
+    <div class="price-range-block">
+        <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
+        <div style="margin: 22px 0px 0px 22px;">
+            <input type="number" min=0 max="130" oninput="validity.valid||(value='30');" id="min_price" class="price-range-field" />
+            <input type="number" min=0 max="900" oninput="validity.valid||(value='1000');" id="max_price" class="price-range-field" />
+        </div>
+        <button class="price-range-search" id="price-range-submit">Search</button>
+        <div id="searchResults" class="search-results-block"></div>
+    </div>
+
+</body>
+
+</html>

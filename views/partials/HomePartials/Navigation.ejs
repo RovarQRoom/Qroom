@@ -1,0 +1,62 @@
+<div class="nav__container">
+
+    <a href="/Home" class="logo"> Hotels Kurdistan </a>
+
+    <nav class="nav__navbar">
+        <a href="/Home">Home</a>
+        <a href="/About">About</a>
+        <a href="/Contact">Contact</a>
+        <a href="/Reviews">Reviews</a>
+        <a href="/Map" target="_blank">Map</a>
+    </nav>
+
+    <div class="nav__icons">
+        <div id="nav__menu-btn" class="fas fa-bars"></div>
+        <div id="nav__search-btn" class="fas fa-search"></div>
+        <% if(Image!=undefined){ %>
+            <img width="50px" height="50px" id="nav__login-btn" src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %> " style=" border: 4px solid #666;border-radius: 50%;" alt="ProfileImage">
+
+            <% }else{ %>
+                <div id="nav__login-btn" class="fas fa-user"></div>
+                <% } %>
+
+    </div>
+
+    <form action="/Search" class="nav__search-form" method="post">
+        <input type="search" placeholder="search here..." id="search-box" name="term">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+    <% if(user==null){ %>
+        <form action="" class="login-form">
+            <h3>Login form</h3>
+            <a href="/Login" class="nav__btn">Login Now</a>
+            <h3>Register form</h3>
+            <a href="/Signup" class="nav__btn">Register Now</a>
+        </form>
+        <% }else{ %>
+            <form action="" class="login-form">
+                <h3>Welcome,
+                    <%=user.name %>
+                </h3>
+                <a href="/Profile" class="nav__btn">Profile</a>
+                <h3>Balance:
+                    <%=user.balance%>$
+                </h3>
+                <a href="/Logout" class="nav__btn">Logout</a>
+            </form>
+            <% } %>
+</div>
+
+<!-- <div class="max-width">
+    <ul class="menu">
+        <div class="fas fa-search change-theme" id="theme-toggler"></div>
+        <form class="search-form">
+            <input type="search" id="search-box" placeholder="Search Here ...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+    </ul>
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div> -->
+
+</div>

@@ -1,0 +1,161 @@
+<header class="header">
+    <a href="/HighCrest" class="logo"> <i class="fas fa-concierge-bell"></i> HighCrest </a>
+    <nav class="navbar" id="navbar">
+        <a href="/HighCrest/Home">HOME</a>
+        <a href="/HighCrest/AllRooms">ROOMS</a>
+        <a href="/HighCrest/Blog">BLOG</a>
+        <a href="/HighCrest/Restaurant">RESTAURANT</a>
+        <a href="/HighCrest/About">ABOUT</a>
+        <a href="/HighCrest/Events">EVENTS</a>
+        <a href="/HighCrest/Contact">CONTACT</a>
+        <!-- <button class="btn-booking">BOOK NOW</button> -->
+    </nav>
+
+
+    <div class="profile">
+        <% if(Image!=undefined){ %>
+            <div id="nav__login-btn" style="padding-right:10px;" onclick="toggleNotification()"><img width="50px" height="50px" src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %> " style=" border: 3px solid #fa7b04;border-radius: 50%;" alt="ProfileImage">
+            </div>
+            <% }else{ %>
+                <div id="nav__login-btn" class="fas fa-user" onclick="toggleNotification()">
+                </div>
+                <% } %>
+    </div>
+    <div class="notification-box" id="notification_Box">
+        <% if(user){ %>
+            <div class="Profile_Name">
+                <h4>
+                    Welcome,
+                    <%= user.name %>
+                </h4>
+                <div class="Profile_Balance">
+                    <p>Your Balance: <span>$<%= user.balance %></span></p>
+                </div>
+                <div class="Buttons">
+                    <a href="/Profile/<%= user._id %>" class="nav__btn">Profile</a>
+                    <a href="/Logout" class="nav__btn">Logout</a>
+                </div>
+            </div>
+            <% }else{ %>
+                <div class="Profile_Name">
+                    <div class="Buttons">
+                        <a href="/Login" class="nav__btn">Login</a>
+                        <a href="/Signup" class="nav__btn">Register</a>
+                    </div>
+                </div>
+                <% } %>
+                    <h2>Notification <span>
+                            <% if(Count){ %>
+                                <%= Count %>
+                                    <% }else{ %>
+                                        0
+                                        <% } %>
+                        </span></h2>
+                    <% if(user){ %>
+                        <% Events.forEach(event=> {%>
+                            <div class="notification-item">
+                                <div class="textBox">
+                                    <h4>
+                                        <%= event.title %>
+                                    </h4>
+                                    <img src="../Room_Images/<%= event.roomType %>.jpg" alt="" style="width: 230px; height: 235px; border-radius: 3rem; opacity: .8;">
+
+                                </div>
+                                <div class="Buttons">
+                                    <p style="margin-top: 5rem; font-size: 1.4rem; margin-left: 1rem; object-fit: cover;">
+                                        Price :
+                                        <%= event.price %>$<br> From :
+                                            <%= event.checkInDate %><br> To :
+                                                <%= event.checkOutDate %><br>
+                                    </p>
+                                    <button class="notifi__btn" data-model-target="#model<%= event._id %>">Check</button>
+                                    <a class="notifi__btn" href="/HighCrest/Delete/<%= event._id %>">Cancel</a>
+                                </div>
+                                <div class="model" id="model<%= event._id %>">
+                                    <div class="model-header">
+                                        <div class="title" style="font-size: 20px;">Room
+                                            <%= Math.floor(Math.random() *100)+1 %>
+                                        </div>
+                                        <button data-close-button class="close-button">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="model-body">
+                                        <img src="../Room_Images/<%= event.roomType %>.jpg" alt="" style="width: 100%; height: 235px; border-radius: 3rem; opacity: .8;">
+                                        <p style="margin-top: 5rem; font-size: 1.4rem; margin-left: 1rem; object-fit: cover;">
+                                            <div class="price" style="font-size: 24px; align-content: center;">
+                                                <%= event.price %>$
+                                            </div><br> From :
+                                            <%= event.checkInDate %><br> To :
+                                                <%= event.checkOutDate %><br>
+                                        </p>
+                                        <form action="/HighCrest/Purchase" method="post">
+                                            <input type="text" name="id" id="" style="display: none;" value="<%=event._id%>">
+                                            <button class="notifi__btn" style="width: 200px; font-size: 16px;">Book
+                                                        Now</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="overlay"></div>
+                            </div>
+                            <%}) %>
+                                <% }else{ %>
+                                    <div class="notification-item">
+                                        <div class="textBox">
+                                            <h4>Please Login To See Info</h4>
+                                        </div>
+                                        <% } %>
+                                    </div>
+
+                                    <div class="center-box-booking">
+                                        <i class="fas fa-bars bars_mardinn" id="bars"></i>
+                                        <input type="checkbox" id="show">
+                                        <label for="show" class="show-btn">Book Now</label>
+
+                                        <div class="container">
+                                            <label for="show" class="close-btn fas fa-times"></label>
+                                            <div class="text">Booking </div>
+                                            <form action="">
+                                                <div class="data">
+                                                    <label for="">Check-In-Date</label>
+                                                    <input type="text" placeholder="10/10/2021">
+                                                </div>
+                                                <div class="data">
+                                                    <label for="">Check-Out-Date</label>
+                                                    <input type="text" placeholder="20/10/2021">
+                                                </div>
+                                                <div class="btn">
+                                                    <div class="inner">
+                                                        <button><a href="/HighCrest/AllRooms"
+                                                                style="color: white;">Available</a></button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+</header>
+<script>
+    let notification_box = document.getElementById("notification_Box");
+    notification_box.style.display = "none";
+    let down = false;
+
+    function toggleNotification() {
+        if (down) {
+            notification_box.style.height = "0px";
+            notification_box.style.opacity = 0;
+            notification_box.style.display = "none";
+            down = false;
+        } else {
+            notification_box.style.height = "600px";
+            notification_box.style.opacity = 1;
+            notification_box.style.display = "block";
+            down = true;
+        }
+    }
+</script>
+
+<script defer src="../../../javaScript/HighCrest_Scripts/Navigation/model.js"></script>
+
+<head>
+    <link rel="stylesheet" href="../../../CSS/Profile_CSS/notification.css">
+</head>

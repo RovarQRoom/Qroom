@@ -1,0 +1,37 @@
+/* yassin */
+/* responsving Eventess */
+
+/* ipad pro */
+@media (max-width:1024px) {
+    .gallery  .contaner .box .deatils  .content h2{
+      font-size: 2.1rem;
+    }
+    .gallery  .contaner .box .deatils  .content p{
+        margin: 10px 0 ;
+        font-size: 1.1rem;
+    }
+    /* .gallery .contaner {
+      background-color: red;
+    }  */
+  }
+
+  
+
+
+/* profile card */
+@media (min-width:1220px){
+  .card{
+    width: 20%;
+  }
+
+  .content #icon-group{
+    font-size: 3rem;
+  } 
+  .content h3 {
+    font-size: 2rem;
+  }
+  .content .textIcon{
+
+    font-size:2.3rem;
+  }
+}

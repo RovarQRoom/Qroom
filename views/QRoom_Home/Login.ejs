@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form </title>
+    <link rel="stylesheet" href="../../CSS/Signin_CSS/login-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="shortcut icon" href="../../All Images/Signin_Images/image/singin.png" type="image/png">
+
+</head>
+
+<body>
+    <img src="https://images.pexels.com/photos/3826666/pexels-photo-3826666.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-singup">
+    <div class="wrapper">
+        <header>Login Form</header>
+        <form action="/Login">
+            <div class="email error" style="color: red;"></div>
+            <div class="field email">
+                <div class="input-area">
+                    <input type="text" placeholder="Email Address" name="EmailSign">
+                    <i class="icon fas fa-envelope"></i>
+                    <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+            </div>
+
+            <div class="password error" style="color: red;"></div>
+            <div class="field password">
+                <div class="input-area">
+                    <input type="password" placeholder="Password" name="PasswordSign">
+                    <i class="icon fas fa-lock"></i>
+                    <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+        <div class="sign-txt">Forgot password? <a href="">Click_Here</a></div>
+
+        <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div></div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+
+        const emailError = document.querySelector('.email.error');
+        const passwordError = document.querySelector('.password.error');
+
+        form.addEventListener('submit', async(e) => {
+            e.preventDefault();
+
+            // Reset Errors
+            emailError.textContent = '';
+            passwordError.textContent = '';
+
+            //Get Values 
+            const email = form.EmailSign.value;
+            const password = form.PasswordSign.value;
+
+            const datafiles = {
+                email,
+                password
+            };
+
+            try {
+                const res = await fetch('/Login', {
+                    method: 'POST',
+                    body: JSON.stringify(datafiles),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const data = await res.json();
+                console.log(data);
+
+                if (data.errors) {
+                    emailError.textContent = data.errors.email;
+                    passwordError.textContent = data.errors.password;
+                } else if (data.user) {
+                    location.assign("/Home");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

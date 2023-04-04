@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&display=swap");
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #222;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #fa7b04;
+}
+.search__content__resulte {
+  display: flex;
+}
+
+.body-center .left-panel {
+  background-color: #ffffff34;
+  margin-left: 60rem;
+}
+
+.left-panel {
+  width: 70%;
+}
+
+.left-panel .box-container {
+  border: 5px solid rgba(255, 157, 0, 0.698);
+  box-shadow: cornflowerblue;
+  width: 100%;
+  height: 450px;
+  margin-bottom: 5rem;
+  border-radius: 1rem;
+}
+.left-panel .box-container:first-child {
+  margin-top: 3rem;
+}
+.left-panel .box-container .box .even-column {
+  display: flex;
+  height: 450px;
+}
+
+.left-panel .box-container .box .even-column .col-left {
+  position: relative;
+  width: 100%;
+  float: left;
+  flex: 1;
+}
+
+.left-panel .box-container .box .even-column .col-left img {
+  width: 100%;
+  height: 98%;
+  transition: 0.3s ease-in-out;
+  transform: scale(0.98);
+  background-image: linear-gradient(315deg, #232723 0%, #252222 74%);
+  border-radius: 1rem;
+}
+
+.left-panel .box-container .box .even-column .col-left img:hover {
+  transform: scale(1);
+}
+
+.left-panel .box-container .box .even-column .col-left h3 {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  font-weight: lighter;
+  padding: 0.5rem 1.5rem;
+  font-family: "Courgette", cursive;
+}
+
+.col-right {
+  width: 80%;
+  flex: 2;
+  position: relative;
+}
+
+.left-panel .box-container .box .even-column .col-right h1 {
+  color: chocolate;
+  font-size: 2rem;
+  border-bottom: 3px solid rgba(210, 105, 30, 0.877);
+  margin-bottom: 3rem;
+  padding: 13px 0;
+  margin-left: -35rem;
+  margin: 10px;
+  font-family: "Courgette", cursive;
+}
+
+.left-panel .box-container .box .even-column .col-right p {
+  padding-top: 1rem;
+  margin-left: 15px;
+  font-size: 1.6rem;
+  font-family: "Montagu Slab", serif;
+}
+
+.left-panel .box-container .box .even-column .col-right .btn-col-left {
+  text-decoration: none;
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 1rem 1rem;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  background: rgba(210, 105, 30, 0.658);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-weight: bolder;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  font-family: "Montagu Slab", serif;
+  margin-left: 10px;
+}
+
+.left-panel .box-container .box .even-column .col-right .btn-col-left:hover {
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+/* the right-panale style */
+
+/* .body-center .right-panel{
+
+    background-color: rgba(210, 105, 30, 0.658);
+    font-family: 'Courgette', cursive;
+   
+} */
+
+.right-panel {
+  background-color: rgba(210, 105, 30, 0.658);
+  font-family: "Courgette", cursive;
+  height: 83vh;
+  margin-top: 180px;
+  margin-left: 4rem;
+  width: 27ch;
+  position: fixed;
+  left: 68rem;
+  bottom: 4rem;
+  border-radius: 1rem;
+}
+.title-right-panel {
+  padding-left: 37px;
+  padding-top: 22px;
+  font-size: 2rem;
+}
+.body-center .right-panel .title-right-panel h1 {
+  font-size: 1rem;
+  text-align: center;
+  padding-top: 3.1rem;
+  padding-bottom: 4.2rem;
+  color: white;
+}
+
+.right-panel .card-right-panel {
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.right-panel .btn-search-right-panel {
+  margin-top: 8.1rem;
+  margin-left: 9rem;
+}
+
+.right-panel input,
+.right-panel select {
+  width: 100%;
+  text-align: center;
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  outline: none;
+  font-size: 16px;
+  color: #e484238d;
+  font-family: "Courgette", cursive;
+}
+
+.right-panel input.btn-search-right-panel {
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5rem;
+  padding: 10px;
+  width: 140px;
+  display: block;
+  margin: 15px;
+  cursor: pointer;
+  color: chocolate;
+  transition: all 0.3s;
+}
+
+.right-panel input.btn-search-right-panel:hover {
+  width: 150px;
+}
+
+.right-panel label {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-family: "Courgette", cursive;
+}
+
+.information-user {
+  color: #ffffffd7;
+  font-size: 2rem;
+  margin-bottom: 6px;
+  padding-left: 1rem;
+  font-family: "Courgette", cursive;
+}
+
+.right-panel .switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  margin: 0 30px;
+  transform: translate(-31px, 0);
+}
+
+.right-panel .switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.5s;
+  border-radius: 34px;
+}
+
+.right-panel .switch input {
+  display: none;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 35px;
+  width: 30px;
+  left: 3px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+/* responsving */
+
+/* ipad pro */
+@media (max-width: 1024px) {
+  .search__content__resulte {
+    flex-direction: column;
+  }
+  .right-panel {
+    order: 1;
+  }
+  .left-panel {
+    width: 100%;
+    order: 2;
+  }
+  .left-panel .box-container {
+    width: 100%;
+  }
+  .left-panel .box-container .box .even-column .col-left {
+    flex: 1;
+  }
+  .left-panel .box-container .box .even-column .col-right {
+    flex: 1;
+  }
+}
+
+/* ipad */
+
+@media (max-width: 768px) {
+  .left-panel .box-container {
+    height: 700px;
+    flex-direction: column;
+  }
+  .left-panel .box-container .box .even-column {
+    height: 700px;
+    flex-direction: column;
+  }
+  .left-panel .box-container .box .even-column .col-left img {
+    width: 52%;
+  }
+  .left-panel .box-container .box .even-column .col-left h3 {
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+}
+
+/* mobyle desigin */
+@media (max-width: 480px) {
+  .left-panel .box-container .box .even-column .col-left h3 {
+    font-size: 0.5rem;
+  }
+  .left-panel .box-container {
+    height: 550px;
+    margin-bottom: 1rem;
+  }
+  .left-panel .box-container .box .even-column {
+    height: 550px;
+  }
+}
+
+/* map */
+
+.contact-mapp {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 160px;
+  right: 10px;
+  border: 1px solid rgba(243, 130, 0, 0.719);
+}
+
+.contact-mapp iframe {
+  width: 100%;
+  height: 100%;
+}

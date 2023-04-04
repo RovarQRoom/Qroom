@@ -1,0 +1,544 @@
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../../../CSS/Profile_CSS/notification.css">
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Room</title>
+    <link rel="stylesheet" href="../../../CSS/HighCrest_CSS/Rooms/Rommpagestyle.css">
+    <link rel="stylesheet" href="../../../../CSS/HighCrest_CSS/Navigation/model.css">
+    <!-- <link rel="stylesheet" href="../../CSS/HighCrest_CSS/Navigation/Navigation.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <!-- ama bo image gallery -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Vendor CSS Files -->
+    <link href="../../../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../../../assets/vendor/venobox/venobox.css" rel="stylesheet">
+    <link href="../../../HighCrest_Assets/Rooms_Assets/Assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../HighCrest_Assets/Rooms_Assets/Assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="../../../HighCrest_Assets/Rooms_Assets/Assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../../../HighCrest_Assets/Rooms_Assets/Assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../../HighCrest_Assets/Rooms_Assets/Assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- ama icon bakrhenawa ka la search bar neshan dadret -->
+    <link rel="icon" href="../../../All Images/HighCrest_Images/Rooms/images/image search bar .png">
+</head>
+
+<body>
+    <!-- Header Section Start -->
+    <header class="header">
+        <a href="/HighCrest" class="logo"> <i class="fas fa-concierge-bell"></i> HighCrest </a>
+        <nav class="navbar">
+            <a href="/HighCrest/Home">HOME</a>
+            <a href="/HighCrest/AllRooms">ROOMS</a>
+            <a href="/HighCrest/Blog">BLOG</a>
+            <a href="/HighCrest/Restaurant">RESTAURANT</a>
+            <a href="/HighCrest/About">ABOUT</a>
+            <a href="/HighCrest/Events">EVENTS</a>
+            <a href="/HighCrest/Contact">CONTACT</a>
+            <button class="btn-booking">BOOK NOW</button>
+        </nav>
+
+        <div class="profile">
+            <% if(Image!=undefined){ %>
+                <div id="nav__login-btn" style="padding-right:10px;" onclick="toggleNotification()">
+                    <img width="50px" height="50px" src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" style=" border: 3px solid #fa7b04;border-radius: 50%;" alt="ProfileImage">
+                </div>
+                <% }else{ %>
+                    <div id="nav__login-btn" class="fas fa-user" onclick="toggleNotification()">
+                    </div>
+                    <% } %>
+        </div>
+        <div class="notification-box" id="notification_Box">
+            <% if(user){ %>
+                <div class="Profile_Name">
+                    <h4>
+                        Welcome,
+                        <%= user.name %>
+                    </h4>
+                    <div class="Profile_Balance">
+                        <p>Your Balance: <span>$<%= user.balance %></span></p>
+                    </div>
+                    <div class="Buttons">
+                        <a href="/Profile/<%= user._id %>" class="nav__btn">Profile</a>
+                        <a href="/Logout" class="nav__btn">Logout</a>
+                    </div>
+                </div>
+                <% }else{ %>
+                    <div class="Profile_Name">
+                        <div class="Buttons">
+                            <a href="/Login" class="nav__btn">Login</a>
+                            <a href="/Signup" class="nav__btn">Register</a>
+                        </div>
+                    </div>
+                    <% } %>
+                        <h2>Notification <span>17</span></h2>
+                        <div class="notification-item">
+                            <div class="textBox">
+                                <h4>Rovar Kamil</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae ipsa animi hic neque accusamus aut aliquid rem ut obcaecati, ullam excepturi tenetur asperiores officia facilis nulla, autem et cupiditate. Atque!</p>
+                            </div>
+                            <div class="Buttons">
+                                <a href="/Profile/<%= user._id %>" class="notifi__btn">Check</a>
+                                <a href="/Logout" class="notifi__btn">Cancel</a>
+                            </div>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="textBox">
+                                <h4>Rovar Kamil</h4>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae ipsa animi hic neque accusamus aut aliquid rem ut obcaecati, ullam excepturi tenetur asperiores officia facilis nulla, autem et cupiditate. Atque!</p>
+                            </div>
+                            <div class="Buttons">
+                                <a href="/Profile/<%= user._id %>" class="notifi__btn">Check</a>
+                                <a href="/Logout" class="notifi__btn">Cancel</a>
+                            </div>
+                        </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container_r" style="margin-top: 20rem;margin-left: 10rem;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="font-size: 4.1rem;">ROOMS</h1>
+                    <div class="line">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <p class="returnhome"><a href="/HighCrest/AllRooms" style="text-decoration: none; font-size: 3.1rem; color:chocolate;">AllRoom >> </a>ROOMS
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End Hero -->
+
+    <!-- Price Start -->
+    <div class="blog-card">
+        <input type="radio" name="select" id="tap-1" checked>
+        <input type="radio" name="select" id="tap-2">
+        <input type="radio" name="select" id="tap-3">
+        <input type="checkbox" id="imgTap">
+        <div class="sliders">
+            <label for="tap-1" class="tap tap-1"></label>
+            <label for="tap-2" class="tap tap-2"></label>
+            <label for="tap-3" class="tap tap-3"></label>
+        </div>
+        <div class="inner-part">
+            <label for="imgTap" class="img">
+                <img class="img-1" src="../../../All Images/HighCrest_Images/Rooms/images/room2.jpg">
+            </label>
+            <div class="content content-1">
+                <span>Room</span>
+                <div class="title">
+                    Description
+                </div>
+                <div class="text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo animi atque aliquid pariatur voluptatem numquam, quisquam. Neque est voluptates doloribus!
+                </div>
+                <button>Read more</button>
+            </div>
+        </div>
+        <div class="inner-part">
+            <label for="imgTap" class="img">
+                <img class="img-2" src="../../../All Images/HighCrest_Images/Rooms/images/highcrest reception.jpg">
+            </label>
+            <div class="content content-2">
+                <span>Price Of Room</span>
+                <div class="title">
+                    250$
+                </div>
+                <div class="text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum eos ut consectetur numquam ullam fuga animi laudantium nobis rem molestias.
+                </div>
+                <button>Read more</button>
+            </div>
+        </div>
+        <div class="inner-part">
+            <label for="imgTap" class="img">
+                <img class="img-3" src="../../../All Images/HighCrest_Images/Rooms/images/service image.jpg">
+            </label>
+            <div class="content content-3">
+                <span>Service Of Room</span>
+                <div class="title">
+                    Services
+                </div>
+                <div class="text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod excepturi nemo commodi sint eum ipsam odit atque aliquam officia impedit.
+                </div>
+                <button>Read more</button>
+            </div>
+        </div>
+    </div>
+    <!-- Price End -->
+
+    <!-- Services Section Start -->
+    <div class=" textServices-blog">
+        <h1>HighCrest Room Know More About It</h1><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit <br> amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus <br> non enim praesent elementum facilisis :
+        </p>
+        <ul>
+            <li>Service</li>
+            <li> Price </li>
+            <li> Description </li>
+        </ul>
+    </div>
+
+    <section id="services">
+        <div class="container-service">
+            <div class="row">
+                <div class="col-md-5 imageServices">
+                    <div class="col-md-6 sofas">
+                        <div class="row">
+                            <img class="roomservice1 img-fluid" src="../../../All Images/HighCrest_Images/Rooms/images/room2.jpg" alt="room1">
+                        </div>
+                        <div class="row">
+                            <img class="roomservice2 img-fluid" src="../../../All Images/HighCrest_Images/Rooms/images/highcrest reception.jpg" alt="room2">
+                        </div>
+
+                        <img class="roomhigh img-fluid" src="../../../All Images/HighCrest_Images/Rooms/images/child room.jpg" alt="lamp">
+
+                    </div>
+                </div>
+                <div class="col-md-7 textServices">
+                    <h1>HighCrest Room Provide Thoese <span>services</span></h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit <br> amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus <br> non enim praesent elementum facilisis :
+                    </p>
+                    <ul>
+                        <li>Free BreakFast</li>
+                        <li>Cleaning Room</li>
+                        <li>Good Reception</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Gallery Room Start -->
+    <section class="galley-room">
+        <div class="room-description">
+            <h1>Our Rooms</h1>
+            <p>Enjoy our services</p>
+        </div>
+        <div class="room-gallery">
+            <img class="gallery-hightlight" src="../../../All Images/HighCrest_Images/Rooms/images/room cover1.jpg" alt="room1" />
+            <div class="room-preview">
+                <img src="../../../All Images/HighCrest_Images/Rooms/images/room2.jpg" class="room-active" alt="" />
+                <img src="../../../All Images/HighCrest_Images/Rooms/images/highcrest room.jpg" alt="" />
+                <img src="../../../All Images/HighCrest_Images/Rooms/images/room2.jpg" alt="" />
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Room End -->
+
+    <!-- Payment Section Start -->
+    <div class="about-section" onload="fetchEvents()">
+        <div class="inner-container">
+            <h1>Payment</h1>
+            <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus velit ducimus, enim inventore earum, eligendi nostrum pariatur necessitatibus eius dicta a voluptates sit deleniti autem error eos totam nisi neque voluptates sit deleniti autem error
+                eos totam nisi neque.
+            </p>
+            <div class="skills">
+                <span>Booking Room</span>
+                <span>Price</span>
+                <span>Location</span>
+            </div>
+            <% if(Availability <=0) {%>
+                <div class="center">
+                    <input type="checkbox" id="show">
+                    <label for="show" class="show-btn">Payment Form</label>
+                    <div class="container" style="margin-top: 36rem;width: 560px; ">
+                        <label for="show" class="close-btn fas fa-times" title="close"></label>
+                        <div class="payment-logo">
+                            <% if(Image){ %>
+                                <img class="profile-img" src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" alt="ProfileImage">
+                                <% }else{ %>
+
+                                    <% } %>
+                        </div>
+                        <div class="text">
+                            No Rooms Available Right Now!
+                        </div>
+                    </div>
+                </div>
+                <% }else{ %>
+                    <div class="center">
+                        <input type="checkbox" id="show">
+                        <label for="show" class="show-btn">Payment Form</label>
+                        <div class="container" style="margin-top: 36rem;width: 560px; ">
+                            <label for="show" class="close-btn fas fa-times" title="close"></label>
+                            <div class="payment-logo">
+                                <% if(Image){ %>
+                                    <img class="profile-img" src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" alt="ProfileImage">
+                                    <% }else{ %>
+
+                                        <% } %>
+                            </div>
+                            <div class="text">
+                                Payment Form
+                            </div>
+                            <div class="card space icon-relative" style="border:none;">
+                                Rooms Available :
+                                <%= Availability %>
+                            </div>
+                            <form>
+                                <div class="card space icon-relative" style="border:none;">
+                                    <label id="phoneName" class="label">Phone Number:</label>
+                                    <% if(user){ %>
+                                        <input type="text" class="input" name="phoneNumber" placeholder="Phone Number" style="color: gray;" value="<%= user.phoneNumber %> ">
+                                        <% }else{%>
+                                            <input type="text" class="input" name="phoneNumber" placeholder="Phone Number" style="color: gray;">
+                                            <% } %>
+                                                <i style="margin-bottom:8px; color: rgba(88, 88, 86, 0.376);" class="fas fa-phone"></i>
+                                </div>
+                                <div class="card-grp space">
+                                    <div class="card-item icon-relative" style="border:none;">
+                                        <label class="label">Room Type:</label>
+                                        <select class="input" id="roomPrice" name="roomType" data-mask="00 / 00" placeholder="Choose Room" style="color: gray;">
+                                            <option>Standard <span>65</span>$</option>
+                                            <option>VIP <span>80</span>$</option>
+                                        </select>
+                                        <i style="margin-bottom:8px;color: rgba(88, 88, 86, 0.376);" class="far fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="card-item icon-relative">
+                                        <label class="label ">Service:</label>
+                                        <select class="input" id="servicePrice" name="roomService" data-mask="000" placeholder="Choose Service" style="color: gray;">
+                                            <option>No Service <span>0</span>$</option>
+                                            <option>With BreakFast, Lunch And Diner <span>20</span>$</option>
+                                        </select>
+                                        <i style="margin-bottom:8px;color: rgba(88, 88, 86, 0.376); font-size: 2rem;" class="fas fa-servicestack"></i>
+                                    </div>
+                                </div>
+                                <div class="card-grp space">
+                                    <div class="card-item icon-relative" style="border:none;">
+                                        <label class="label">Check In Date:</label>
+                                        <input type="date" name="checkInDate" class="input" data-mask="00 / 00" placeholder="Pick Check In Date" style="color: gray;">
+                                        <i style="margin-bottom:8px;color: rgba(88, 88, 86, 0.376);" class="far fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="card-item icon-relative" style="border:none;">
+                                        <label class="label">Check Out Date:</label>
+                                        <input type="date" name="checkOutDate" class="input" data-mask="00 / 00" placeholder="Pick Check Out Date" style="color: gray;">
+                                        <i style="margin-bottom:8px;color: rgba(88, 88, 86, 0.376);" class="far fa-calendar-alt"></i>
+                                    </div>
+                                </div>
+                                <label class="label" id="overhaulPrice"></label>
+                                <input type="submit" value="Pay" class="btn" onclick="valid();" >
+                            </form>
+                        </div>
+                    </div>
+
+                    <% } %>
+        </div>
+    </div>
+
+    <script>
+        function valid() {
+            swal("Good !", " Now You Are Reservation Hotel", "success");
+        }
+
+
+        let PriceBox = document.getElementById("overhaulPrice");
+        const form = document.querySelector('form');
+        let HotelName = `<%-Hotel%>`;
+        form.addEventListener('submit', async(e) => {
+            e.preventDefault();
+
+            //Get Values 
+            const phoneNumber = form.phoneNumber.value;
+            let roomType = form.roomType.value;
+            let roomService = form.roomService.value;
+            const checkInDate = form.checkInDate.value;
+            const checkOutDate = form.checkOutDate.value;
+
+            roomType = roomType.replace(/[0-9]|\$|\s/g, '');
+            var daysBetween = (new Date(checkOutDate).getTime() - new Date(checkInDate).getTime()) / (3000 * 1000 * 24);
+            console.log("The Days: " + daysBetween);
+            const datafiles = {
+                phoneNumber,
+                roomType,
+                roomService,
+                price: getPrice() * daysBetween,
+                checkInDate,
+                checkOutDate
+            };
+            console.log(datafiles);
+            const requestBody = {
+                query: `
+                  mutation{
+                      createEvent(eventInput:{title:"${HotelName}",roomType:"${roomType}",description:"${roomType}, ${roomService}",price:${getPrice() * daysBetween},checkInDate:"${checkInDate}",checkOutDate:"${checkOutDate}"}) {
+                          _id
+                          title
+                          description
+                          price
+                          checkInDate
+                          checkOutDate
+                          creator{
+                              _id
+                              email
+                          }
+                      }
+                  }
+                  `
+            };
+            let token = `<%-token%>`;
+            fetch('http://localhost:3000/graphql', {
+                method: 'POST',
+                body: JSON.stringify(requestBody, datafiles),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'rovar hanaw avan yassin ' + token
+                }
+            }).then(res => {
+                try {
+                    if (res.status !== 200 && res.status !== 201) {
+                        console.log("Error Happened");
+                    }
+                    return res.json();
+                } catch (err) {
+                    console.log(err);
+                }
+            }).then(resData => {
+                console.log(resData);
+                location.assign("/HighCrest/Home");
+            }).catch(err => {
+                console.log(err);
+            })
+        })
+
+        function getPrice() {
+            let servicePrice = document.getElementById("servicePrice");
+            let roomPrice = document.getElementById("roomPrice");
+            let service = servicePrice.options[servicePrice.selectedIndex].value;
+            let room = roomPrice.options[roomPrice.selectedIndex].value;
+            service = parseFloat(service.replace(/\D/g, ''));
+            room = parseFloat(room.replace(/\D/g, ''));
+            let price = service + room;
+            console.log(price);
+            return price;
+        }
+
+        window.onload = function fetchEvents() {
+            const requestBody = {
+                query: `
+                  query{
+                      events{
+                          _id
+                          title
+                          description
+                          price
+                          checkInDate
+                          checkOutDate
+                          creator{
+                              _id
+                              email
+                          }
+                      }
+                  }
+                  `
+            };
+            fetch('http://localhost:3000/graphql', {
+                method: 'POST',
+                body: JSON.stringify(requestBody),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                try {
+                    if (res.status !== 200 && res.status !== 201) {
+                        console.log("Error Happened");
+                    }
+                    return res.json();
+                } catch (err) {
+                    console.log(err);
+                }
+            }).then(resData => {
+                console.log(resData);
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    </script>
+    <!-- Payment Section End -->
+
+    <!-- </div>
+  </div>
+  </div> -->
+
+    <!-- Footer Section Start  -->
+    <%- include("../../../partials/HighCrestPartials/MainPartials/Footer.ejs") %>
+        <!-- Footer Section End  -->
+
+        <!-- Scripts -->
+        <!-- gsap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <!-- amayan bo jquery bakare dahene about  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+        <!-- amash bo jsy swpiper y about   -->
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+        <script src="../../../javaScript/HighCrest_Scripts/Rooms/pagejs.js"></script>
+
+        <!-- gsap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+
+
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+        <script>
+            let notification_box = document.getElementById("notification_Box");
+            notification_box.style.display = "none";
+            let down = false;
+
+            function toggleNotification() {
+                if (down) {
+                    notification_box.style.height = "0px";
+                    notification_box.style.opacity = 0;
+                    notification_box.style.display = "none";
+                    down = false;
+                } else {
+                    notification_box.style.height = "510px";
+                    notification_box.style.opacity = 1;
+                    notification_box.style.display = "block";
+                    down = true;
+                }
+            }
+        </script>
+        <script src="../../../javaScript/HighCrest_Scripts/Portfolio/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
+@import url('../css/fonts.css');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+ 
+}
+html::-webkit-scrollbar{
+    width:1rem;
+  }
+  
+  html::-webkit-scrollbar-track{
+    background:#222;
+  }
+  
+  html::-webkit-scrollbar-thumb{
+    background:#fa7b04;
+  }
+@keyframes scroll{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+       transform: translateX(calc(-250px*7)); 
+    }
+    
+    }
+    
+    
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 2rem 3%;
+  }
+  
+  .header .logo {
+    width: 228px;
+    font-size: 2.6rem;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #222;
+    font-family: 'Noto serif','serif';
+  }
+  
+  .header .logo i {
+    color: #ff7b00d2;
+  }
+  
+  .header .navbar{
+      width: 74%;
+      display: flex;
+      transition: all ease 1s;
+  }
+  
+  
+  .header .navbar a {
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: #666;
+    margin: 1rem;
+    font-family: 'serif';
+  }
+  .header .navbar a:hover {
+    color: #ff7b00d2;
+  }
+  #bars{
+      font-size: 24px;
+      padding: 10px;
+      padding-left: 0;
+      cursor: pointer;
+      display: none;
+  }
+
+
+
+
+
+.center-box-booking{
+    width: 184px;
+}
+
+.center-box-booking .container{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    right: 30rem;
+    background:  rgba(255, 255, 255, 0.822);
+    width: 410px;
+    padding: 30px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+    .center-box-booking .container .text{
+    
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    
+    
+    
+    }
+    
+    .center-box-booking .container{
+        display: none;
+    }
+    
+    
+    
+    
+    .show-btn {
+        width: 340px;
+        height: 85px;
+        font-size: 28px;
+        cursor: pointer;
+        border:none  ;
+        outline: none;
+        background: transparent;
+        color: #666;
+        font-family: 'Noto serif','serif';
+        position: relative;
+        transition: all 0.5s;
+        z-index: 1;
+       }
+       .show-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 100%;
+        background-color: rgba(255, 136, 1, 0.897);
+        z-index: -1;
+        transition: all 0.5s;
+        border-radius: .5rem;
+       }
+       .show-btn:hover::before {
+        width: 100%;
+       }
+       
+       .show-btn:hover {
+        color: #ffffff;
+       }
+       
+       .show-btn:active:before {
+        background: #b9b9b9;
+       }
+       
+     
+    
+    input[type="checkbox"]{
+        display: none;
+    }
+    
+
+  /* yassin */
+  /* responsving */
+
+  
+  /* ipad pro */
+  @media (max-width:1024px){
+    /* .header{
+        background-color: royalblue;
+    } */
+
+    .header .logo{
+        width: 150px;
+        font-size: 20px;
+    }
+
+    .header .navbar a{
+        font-size: 14px;
+        margin: 6px;
+    }
+
+    .show-btn{
+        font-size: 24px;
+    }
+    .center-box-booking{
+        width: 130px;
+    }
+     
+  }
+
+  /* ipad */
+  
+  @media (max-width:768px){
+    #bars{
+        display: inline-block;
+    }
+    .header{
+        /* background-color: pink; */
+        align-items: flex-start;
+    }
+    .header .logo{
+        width: 158px;
+    }
+    .header .navbar{
+        display: none; 
+        flex-direction: column-reverse;
+        position: absolute;
+        left: 0;
+        top: 98%;
+        width: 100%;
+        background-color: white;
+
+    }
+    .header .navbar a{
+        width: 95%;
+        padding: 10px;
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #f3f3f3;
+        font-size: 2rem;
+        display: block;
+        border-radius: 0.5rem;
+    }
+    .center-box-booking{
+        width: 184px;
+    }
+ 
+    .footer{
+        height: 100vh;
+    }
+      
+  }
+  
+  /* mobile */
+@media (max-width:420px){
+    .slide-left {
+        margin-top: 10px;
+        padding: 10px;
+        width: 74%;
+    }
+    .center-box-booking {
+        margin-left: 29%;
+    }
+    .header .logo{
+        font-size: 18px;
+        line-height: 44px;
+    }
+    .show-btn {
+        font-size: 20px;
+    }
+  }
+
+  .header .display{
+    transition: all ease 1s;
+    display: flex;
+}
+
+.bars_mardinn{
+    display: none;
+}

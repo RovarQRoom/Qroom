@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../All Images/Main_Images/images/logo.png" type="image/png">
+    <title>Picture Update</title>
+    <link rel="stylesheet" href="../../../CSS/Profile_CSS/picture_update.css">
+    <script src="https://kit.fontawesome.com/3973ff0208.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1><a href="/Profile/<%= user._id %>"><i class="fa-solid fa-arrow-left"></i></a></h1>
+    <form action="/Profile/<%= user._id  %>/Picture" method="post" enctype="multipart/form-data">
+        <div class="profile-pic-div">
+            <% if(Image!=undefined){ %>
+                <img src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" alt="ProfilePicture" id="image">
+                </image>
+                <% }else{ %>
+                    <img src="../../../All Images/Profile_Images/user.png" alt="ProfilePicture" id="image"></image>
+                    <% } %>
+                        <input type="file" name="ProfileImage" id="file" accept="image/*">
+                        <label for="file" id="uploadBtn">Choose Photo</label>
+        </div>
+        <button>Update</button>
+    </form>
+
+    <script>
+        const imgDiv = document.querySelector('.profile-pic-div');
+        const img = document.querySelector('#image');
+        const files = document.querySelector('#file');
+        const uploadBtn = document.querySelector('#uploadBtn');
+
+        imgDiv.addEventListener('mouseenter', function() {
+            uploadBtn.style.display = 'block';
+        });
+
+        imgDiv.addEventListener('mouseleave', function() {
+            uploadBtn.style.display = 'none';
+        });
+
+        file.addEventListener('change', function() {
+            // this refer to the file
+            const choosedFile = this.files[0];
+
+            if (choosedFile) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function() {
+                    img.setAttribute('src', reader.result);
+                });
+                reader.readAsDataURL(choosedFile);
+            }
+        })
+    </script>
+</body>
+
+</html>

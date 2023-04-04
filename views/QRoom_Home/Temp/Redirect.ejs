@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <title>Redirect</title>
+</head>
+
+<body style="background-color:gainsboro;text-align: center; position: relative;">
+    <h2 style="background-position: center; "> Congratulations <br>
+        <% if(LogMsg.SignedIn) {%>
+            <span>You've Successfully Signed-in</span>
+            <%}%>
+
+                <%if(LogMsg.SignedUp){%>
+                    <span>You've Successfully Signed-up</span>
+                    <%}%>
+    </h2>
+    <span style="font-size: 24px; font-weight: bold;">
+        <%=email%>
+    </span>
+    <span style="font-size: 18px;"><br><br> Returning in 3 2 1...</span>
+
+    <script>
+        setTimeout(() => {
+            window.location = "/Home";
+        }, 2000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+/* First Attempt */
+
+
+/* body {
+  margin-top: 20px;
+  background-color: rgb(235, 231, 231);
+}
+
+.main {
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topbar {
+  background-color: teal;
+  overflow: hidden;
+}
+
+.topbar a {
+  float: right;
+  color: whitesmoke;
+  text-align: center;
+  padding: 20px 26px;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.sidebar {
+  background-color: #333;
+  color: white;
+  height: 100%;
+}
+
+.sidebar a {
+  margin-left: 10px;
+  display: block;
+  color: white;
+  padding-bottom: 10px;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  background-color: whitesmoke;
+} */
+
+
+/* Second Attempt */
+
+body {
+    background-color: #1c2833;
+}
+
+*:focus {
+    outline: none;
+}
+
+h1 {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: #222;
+}
+
+h1 i {
+    position: absolute;
+    top: 14px;
+    left: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+h1 i:hover {
+    color: orange;
+}
+
+.box {
+    box-sizing: border-box;
+    width: 153px;
+    height: 153px;
+    border: 2px solid #3498db;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121.288);
+    border-radius: 50%;
+    background-color: black;
+    margin-top: 50px;
+    overflow: hidden;
+    transition: all 1s;
+}
+
+img {
+    box-sizing: border-box;
+    width: 149px;
+    height: 149px;
+    border-radius: 50%;
+    margin: 0;
+    border: 5px solid #0082e6;
+    padding: 3px;
+    background-color: white;
+    transition: all 1s;
+}
+
+input {
+    margin-top: 25px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    display: block;
+    box-sizing: border-box;
+    background: none;
+    color: #3498db;
+    margin-bottom: 4px;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #0082e6;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-bottom: 2px solid #3498db;
+    border-bottom-right-radius: 20px;
+    color: #3498db;
+    transition: 0.2 ease;
+}
+
+button {
+    border: 1px solid #3498db;
+    background-color: black;
+    color: white;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 0px;
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label {
+    box-sizing: border-box;
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    border: 1px solid #3498db;
+    padding: 2px 15px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+label:hover {
+    background-color: #3498db;
+    color: black;
+}
+
+.box:hover {
+    width: 360px;
+    height: 600px;
+    border-radius: 5px;
+}
+
+.box:hover img {
+    width: 100px;
+    height: 100px;
+    margin: 21px 31%;
+}

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../CSS/Main_CSS/StyleCss/aos.css">
+
+    <link rel="shortcut icon" href="../../../All Images/Main_Images/images/logo.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/iconfont/material-icons.min.css" referrerpolicy="no-referrer" />
+    <title>QRoom</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caramel&family=Explora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <!-- link move the city -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <!-- For Alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" href="../../../CSS/Main_CSS/style.css">
+    <link rel="stylesheet" href="../../../CSS/Main_CSS/responsiv.css">
+</head>
+
+<body>
+    <!-- start of the navigation  -->
+    <%- include("../partials/HomePartials/Navigation.ejs")%>
+        <!-- nav end -->
+
+        <!-- Start Home Section -->
+        <div class="home-section" id="home">
+            <div class="home-bg"></div>
+            <div class="container">
+                <div class="row min-vh-100 align-items-center">
+                    <div class="home-text">
+                        <div class="findHotel">FIND QROOM IN <span class="typing"></span></div>
+                        <h3 class="welcome">WELCOME THE <span class="qroom">QROOM</span> </h3>
+                    </div>
+                </div>
+                <!-- Start Form For check  -->
+                <div class="book" data-aos="zoom-in-up">
+                    <form class="book-form" method="post" action="/SearchMain">
+
+                        <div class="form-item select-group">
+
+                            <label for="button">Where are you going?</label>
+                            <select id="city" name="cityVal">
+                                <option value="Erbil">Erbil</option>
+                                <option value="Sulaymaniyah">Sulaymaniyah</option>
+                                <option value="Duhok">Duhok</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-item">
+                            <label for="button">Check-In-Date</label>
+                            <input type="date" min="1" value="1" name="checkInDate" min="<%=Today%>">
+                        </div>
+
+                        <div class="form-item">
+                            <label for="button">Check-Out-Date</label>
+                            <input type="date" min="1" value="1" name="checkOutDate">
+                        </div>
+
+
+                        <div class="form-item">
+                            <label for="adult">Adults: </label>
+                            <input type="number" min="1" value="1" id="adult" name="adultNum">
+                        </div>
+                        <div class="form-item">
+                            <label for="children">Children: </label>
+                            <input type="number" min="1" value="1" id="children" name="childNum">
+                        </div>
+                        <div class="form-item">
+                            <label for="rooms">Rooms: </label>
+                            <input type="number" min="1" value="1" name="roomNum">
+                        </div>
+                        <div class="form-item">
+                            <input type="submit" class="btn-search fas fa-search" value="search" style="padding-right:28rem;">
+                        </div>
+                    </form>
+                </div>
+                <!-- End Form For check  -->
+            </div>
+        </div>
+        <!-- End Home Section -->
+
+        <!-- Start About -->
+        <section class="about" id="about">
+            <h1 class="about-hotel" data-aos="fade-right" data-aos-duration="1000"><span data-aos="fade-right" data-aos-duration="1000">About </span>Hotel</h1>
+            <div class="row">
+                <div class="image">
+                    <video src="../../All Images/Main_Images/images/video-about.mp4" muted controls width="640rem" height="420rem" poster="All Images/Main_Images/images/play.jpg">
+                    </video>
+                </div>
+                <div class="content">
+                    <h3 class="h3-content-about" data-aos="fade-right" data-aos-duration="800">We can know about us & see all the activity
+                    </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. facilis culpa possimus, quia praesentium itaque, sapiente quasi harum rem asperiores.</p>
+                    <p><i class="fas fa-arrow-circle-right icon-content"></i> Work <i class="fas fa-briefcase icon-content-space"></i></p>
+                    <p><i class="fas fa-arrow-circle-right icon-content"></i> Price <i class="fas fa-dollar-sign icon-content-space"></i></p>
+                    <p><i class="fas fa-arrow-circle-right icon-content"></i> Service <i class="fas fa-concierge-bell icon-content-space"></i></i>
+                    </p>
+                    <p><i class="fas fa-arrow-circle-right icon-content"></i> Activity <i class="fas fa-history icon-content-space"></i></p>
+                    <a href="/Contact" class="btn-about">CONTACT US</a>
+                </div>
+            </div>
+        </section>
+        <!-- End About -->
+
+        <!-- Silder All Star -->
+        <!-- <div class="slide hi-slide">
+    <div class="hi-prev "></div>
+    <div class="hi-next "></div>
+    <ul>
+        <li>
+            <img
+                src="https://images.unsplash.com/photo-1515548212260-ac87067b15ab?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJpY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+        </li>
+        <li><img
+                src="https://images.unsplash.com/photo-1613843433065-819a04a47a09?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHByaWNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
+        </li>
+        <li><img src="https://i.pinimg.com/236x/b4/5c/8d/b45c8dbda4455709dcfd19268ade2ed6.jpg" /></li>
+        <li><img src="https://i.pinimg.com/236x/7f/f9/15/7ff915bfb0b53fa38ac0530f8e3d9bbe.jpg" /></li>
+        <li><img src="https://i.pinimg.com/236x/fb/99/39/fb9939d52f6e546dba50f206616010c7.jpg" /></li>
+        <li><img src="https://i.pinimg.com/236x/34/0f/c9/340fc9c9a8e608e692909f0c723a1313.jpg" /></li>
+        <li><img src="https://i.pinimg.com/236x/93/ec/77/93ec770aa1dad6ff11b3385b1b1b716e.jpg" /></li>
+        <li><img src="https://i.pinimg.com/236x/c3/00/14/c30014d8e71739149df806718e839960.jpg" /></li>
+    </ul>
+</div> -->
+        <!-- Silder All End -->
+
+        <!-- About us -->
+        <section class="about-us" id="about-us">
+            <div class="section-header">
+                <h1 class="section-heading" data-aos="fade-right" data-aos-duration="1000">Hotel Service</h1>
+                <div class="underline"></div>
+            </div>
+            <div class="services">
+                <div class="service">
+                    <div class="service-header">
+                        <i class="fas fa-concierge-bell" data-aos="fade-down-right" data-aos-duration="1000"></i>
+                        <h3 class="h3-about" data-aos="fade-down-right" data-aos-duration="1000">Services</h3>
+                    </div>
+                    <p class="service-text" data-aos="fade-down-right" data-aos-duration="1000">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, officia! Necessitatibus delectus sed dicta corrupti voluptatibus, omnis eius vel ab magni nemo, incidunt esse! Quod!
+                    </p>
+                </div>
+                <div class="service">
+                    <div class="service-header">
+                        <i class="fas fa-address-card" data-aos="fade-down-right" data-aos-duration="1000"></i>
+                        <h3 class="h3-about" data-aos="fade-down-right" data-aos-duration="1000">Payment</h3>
+                    </div>
+                    <p class="service-text" data-aos="fade-down-right" data-aos-duration="1000">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, officia! Necessitatibus delectus sed dicta corrupti voluptatibus, omnis eius vel ab magni nemo, incidunt esse! Quod!
+                    </p>
+                </div>
+                <div class="service">
+                    <div class="service-header">
+                        <i class="fas fa-bed" data-aos="fade-down-right" data-aos-duration="1000"></i>
+                        <h3 class="h3-about" data-aos="fade-down-right" data-aos-duration="1000">Beds</h3>
+                    </div>
+                    <p class="service-text" data-aos="fade-down-right" data-aos-duration="1000">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, officia! Necessitatibus delectus sed dicta corrupti voluptatibus, omnis eius vel ab magni nemo, incidunt esse! Quod!
+                    </p>
+                </div>
+                <div class="service">
+                    <div class="service-header">
+                        <i class="fas fa-search-location" data-aos="fade-down-left" data-aos-duration="1000"></i>
+                        <h3 class="h3-about" data-aos="fade-down-left" data-aos-duration="1000">Location</h3>
+                    </div>
+                    <p class="service-text" data-aos="fade-down-left" data-aos-duration="1000">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, officia! Necessitatibus delectus sed dicta corrupti voluptatibus, omnis eius vel ab magni nemo, incidunt esse! Quod!
+                    </p>
+                </div>
+                <div class="service">
+                    <div class="service-header">
+                        <i class="fas fa-tags" data-aos="fade-down-left" data-aos-duration="1000"></i>
+                        <h3 class="h3-about" data-aos="fade-down-left" data-aos-duration="1000">Discount</h3>
+                    </div>
+                    <p class="service-text" data-aos="fade-down-left" data-aos-duration="1000">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, officia! Necessitatibus delectus sed dicta corrupti voluptatibus, omnis eius vel ab magni nemo, incidunt esse! Quod!
+                    </p>
+                </div>
+                <div class="service">
+                    <div class="service-header">
+                        <i class="fas fa-wifi" data-aos="fade-down-left" data-aos-duration="1000"></i>
+                        <h3 class="h3-about" data-aos="fade-down-left" data-aos-duration="1000">Extra</h3>
+                    </div>
+                    <p class="service-text" data-aos="fade-down-left" data-aos-duration="1000">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, officia! Necessitatibus delectus sed dicta corrupti voluptatibus, omnis eius vel ab magni nemo, incidunt esse! Quod!
+                    </p>
+                </div>
+                <div class="about-us-img-wrapper" data-aos="fade-down" data-aos-duration="1000">
+                    <img src="https://images.squarespace-cdn.com/content/v1/5ea0614a23978f42dee12261/1627428753077-LLE29FJ66ZNQQF9ITFLE/clermont_illo_02.png?format=1000w">
+                </div>
+            </div>
+        </section>
+        <!-- End About Us -->
+
+        <!-- Start Our Hotels  -->
+        <section class="packages" id="packages">
+            <h1 class="heading" data-aos="fade-right" data-aos-duration="1000"> Our <span>Hotels</span></h1>
+            <div class="box-container">
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/05/52/ee/c2/titanic-hotel-spa.jpg" alt="">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Sulaimany/Titanic</h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star-half-alt" id="star"></i></div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/62091585.jpg?k=d1954743e828115342314942aa94be3a8e5c14ce0ec32a5f175cd273ef085d33&o=">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Sulaimany/Grand Millenium</h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i> </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/03/50/ea/e3/highcrest-hotel.jpg">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Sulaimany/HighCrest</h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"><i
+                                    class="fas fa-star-half-alt"></i></i>
+                        </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://cdn.ostrovok.ru/t/640x400/content/68/01/680100dd7ddefae500135d0d5c5fe3b4f4186aa4.jpeg">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Hawler/Rotana</h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="far fa-star" id="star"></i></div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_225,q_auto,w_225/itemimages/22/94/2294620_v2.jpeg">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Hawler/Divana </h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i> </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://images.mawazin.net/root/root/images/201192018_BCEDE0C9-B21C-4A58-8DAF-D6ECFF8730C6.jpeg">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Hawler/Darin</h3>
+
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i> </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/09/45/7f/1f/rixos-duhok.jpg">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Duhok/RIXOS</h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i> </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://www.ticati.com/img/hotel/1287905s.jpg">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Duhok/Shiraton</h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99<br><i class="fas fa-star" id="star"></i><i
+                                    class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i
+                                    class="far fa-star" id="star"></i></span>
+                        </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="image">
+                        <img src="https://www.letsbookhotel.com/img/max300/858/8582477.jpg">
+                        <h3> <i class="fas fa-map-marker-alt"></i> Duhok/Jiyan</h3>
+                    </div>
+                    <div class="content">
+                        <div class="price"> 290.99 <span>350.99</span><br><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i><i class="fas fa-star" id="star"></i> </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, vitae.</p>
+                        <a href="#" class="btn-book">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Our Hotels -->
+
+        <!-- Start Event -->
+        <section class="gallery" id="gallery">
+            <h1 class="heading" data-aos="fade-right" data-aos-duration="1000"> Event& <span>Gallery</span>
+            </h1>
+            <div class="contaner">
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src=" https://cdn.pixabay.com/photo/2014/09/05/15/07/restaurant-436407__340.jpg" alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Weddings</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src=" https://cdn.pixabay.com/photo/2018/04/30/06/10/table-3361858__340.jpg " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Weddings</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src=" https://cdn.pixabay.com/photo/2019/02/22/21/56/hotels-4014509__340.jpg   " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Weddings</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src=" https://cdn.pixabay.com/photo/2016/03/27/20/54/wedding-reception-1284245__340.jpg " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Weddings</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src="  https://cdn.pixabay.com/photo/2016/10/16/10/30/office-space-1744803__340.jpg " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Meeting Room</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src=" https://cdn.pixabay.com/photo/2017/03/28/12/06/chairs-2181919__340.jpg " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Meeting Room</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src="  https://cdn.pixabay.com/photo/2017/03/28/12/10/chairs-2181951__340.jpg  " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Meeting Room</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src="   https://cdn.pixabay.com/photo/2017/03/28/12/11/chairs-2181960__340.jpg " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>Meeting Room</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src=" https://i.pinimg.com/564x/fb/69/4e/fb694ed4ae24afe117d030af3866d484.jpg" alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>New Years</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src="    https://cdn.pixabay.com/photo/2014/09/26/05/56/fireworks-461750__340.jpg" alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>New Years</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src=" https://cdn.pixabay.com/photo/2020/11/17/15/44/cup-5752775__340.jpg " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>New Years</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="imgbox-gallery">
+                        <img src="   https://cdn.pixabay.com/photo/2019/12/10/19/39/new-years-eve-4686668__340.jpg  " alt="">
+                    </div>
+                    <div class="deatils">
+                        <div class="content">
+                            <h2>New Years</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, officia repudiandae neque culpa ipsam deserunt saepe corporis suscipit, sint facere reprehenderit, molestias nulla. Perferendis dignissimos dicta incidunt omnis
+                                doloremque repellendus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Event -->
+
+        <!-- Start Team -->
+        <div class="group-title" id="group-team">
+            <h1 class="heading" data-aos="fade-right" data-aos-duration="1200">Our<span> Team</span>
+            </h1>
+        </div>
+
+
+        <!-- Cards -->
+        <section class="group">
+            <!-- Hanaw -->
+            <div class="card">
+                <div class="circle">
+                    <div class="imgbox">
+                        <img src="../../All Images/Main_Images/images/hanaw.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="content">
+                    <a href=""><i class="fab fa-facebook-f" id="icon-group"></i></a>
+                    <h3>Hanaw Muhammad</h3>
+                    <div class="textIcon">
+                        <h4>Front-End Devloper </h4>
+                        <a href=""> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Rovar -->
+            <div class="card">
+                <div class="circle">
+                    <div class="imgbox">
+                        <img src="../../All Images/Main_Images/images/rovar.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="content">
+                    <a href=""><i class="fab fa-instagram" id="icon-group"></i></a>
+                    <h3>Rovar Kamil</h3>
+                    <div class="textIcon">
+                        <h4>Back-End Devloper </h4>
+                        <a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Avan -->
+            <div class="card">
+                <div class="circle">
+                    <div class="imgbox">
+                        <img src="../../All Images/Main_Images/images/avan.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="content">
+                    <a href=""><i class="fab fa-linkedin-in" id="icon-group"></i></a>
+                    <h3>Avan Jalil</h3>
+                    <div class="textIcon">
+                        <h4>Front-End Devloper </h4>
+                        <a href=""> <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!-- End Team -->
+
+        <!-- Start Contact -->
+        <section class="contact" id="contact">
+            <div class="container-contact">
+                <div class="form-contact">
+                    <div class="contact-info">
+                        <h3 class="title" style="text-align: center;">Let's get in touch</h3>
+                        <div class="info-contact">
+                            <div class="information-contact">
+                                <img src="../../All Images/Main_Images/images/location.png" width="25%" class="icon-contact" alt="" />
+                                <p>92 Cherry Drive Uniondale, NY 11553</p>
+                            </div>
+                            <div class="information-contact">
+                                <img src="../../All Images/Main_Images/images/email.png" width="15%" class="icon-contact" alt="" />
+                                <p>lorem@ipsum.com</p>
+                            </div>
+                            <div class="information-contact">
+                                <img src="../../All Images/Main_Images/images/logo.png" width="15%" class="icon-contact" alt="" />
+                                <p>123-456-789</p>
+                            </div>
+                        </div>
+
+                        <div class="social-media-contact">
+                            <p>Connect with us : </p>
+                            <div class="social-icons-contact">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="contact-mapp">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51931.8596199573!2d45.41317114478643!3d35.56009264744845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40002bf67a19c56f%3A0x3749910ae2db2f66!2sMillennium%20Kurdistan%20Hotel%20and%20Spa!5e0!3m2!1sen!2siq!4v1632832127260!5m2!1sen!2siq"
+                            width="350rem" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                    <div class="contact-form-us">
+                        <span class="circle-contact one"></span>
+                        <span class="circle-contact two"></span>
+
+                        <form action="" autocomplete="off">
+                            <h3 class="title-contact-us">Contact us</h3>
+                            <div class="input-container-contact">
+                                <input type="text" name="name" class="input" placeholder="User Name" />
+                            </div>
+                            <div class="input-container-contact">
+                                <input type="email" name="email" class="input" placeholder="Email" />
+                            </div>
+                            <div class="input-container-contact">
+                                <input type="tel" name="phone" class="input" placeholder="Phone Number " />
+                            </div>
+                            <div class="input-container-contact  textarea">
+                                <textarea name="message" class="input" placeholder="Write Message ..."></textarea>
+                            </div>
+                            <input type="submit" value="Send" class="btn-contact" />
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Contact -->
+
+        <!-- Start Brand -->
+        </section>
+
+        <section class="brand" id="brand">
+            <div class="slider">
+                <div class="slider-track">
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/1brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/2brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/3brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/4brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/5brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/1brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/2brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/3brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/4brand.png" alt="">
+                    </div>
+
+                    <div class="slide">
+                        <img src="../../All Images/Main_Images/images/5brand.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- End Brand -->
+
+        <!-- Start Footer -->
+        <%- include("../partials/HomePartials/Footer.ejs")%>
+            <!-- End Footer -->
+
+            <!-- Slider The All -->
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+            <script type="text/javascript" src="../javaScript/Main_Scripts/slider.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+            <script src="../../../javaScript/Main_Scripts/javaScript.js"></script>
+
+            <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+            <script src="../../../javaScript/Main_Scripts/aos.js"></script>
+
+            <!-- the scripts -->
+            <script src="../../../javaScript/Main_Scripts/javascript_AC/nav.js"></script>
+            <script src="../../../javaScript/Main_Scripts/pagejs.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,863 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #222;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #fa7b04;
+}
+
+:root {
+  /* size margin */
+  --top_navbar: 3rem;
+
+  /* color */
+  --primary: #f3ede9;
+  --highlight: #afa798;
+  --font_primary: #1b1c22;
+  --navbar_menu: #938071;
+  --promo: #fafafa;
+
+  /* fonts */
+  --fonts_family: "Open Sans", sans-serif;
+  --fonts_default: 1rem;
+  --fonts_hero: 2.25rem;
+  --fonts_title: 2.125rem;
+  --fonts_subtitle: 1.625rem;
+  --fonts_component: 1.125rem;
+  --fonts_footer: 1.25rem;
+  --fonts_copyright: 0.875rem;
+}
+
+body {
+  background-color: #eee;
+}
+
+html {
+  font-size: 70.1%;
+}
+::before,
+:after {
+  box-sizing: border-box;
+}
+img {
+  max-width: 100%;
+}
+
+header,
+section {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ---------------------------Navbar-------------- */
+/* --------------- navbar ----------------- */
+.btn-booking {
+  width: 140px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #666;
+  font-family: "Noto serif", "serif";
+  position: relative;
+  transition: all 0.5s;
+  z-index: 1;
+  margin-left: 30rem;
+}
+.btn-booking::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: rgba(255, 136, 1, 0.897);
+  z-index: -1;
+  transition: all 0.5s;
+  border-radius: 1rem;
+}
+.btn-booking:hover::before {
+  width: 100%;
+}
+
+.btn-booking:hover {
+  color: #ffffff;
+}
+
+.btn-booking:active:before {
+  background: #b9b9b9;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  font-family: "Noto ", "serif";
+  padding: 1rem 3%;
+}
+
+.header .logo {
+  font-size: 2.6rem;
+  font-weight: bolder;
+  color: #222;
+  font-family: "Noto ", "serif";
+  text-decoration: none;
+}
+
+.header .logo i {
+  color: #ff7b00d2;
+  font-size: 2.9rem;
+}
+.header .navbar a {
+  font-size: 1.6rem;
+  color: #666;
+  margin: 0.8rem;
+  text-decoration: none;
+}
+.header .navbar a:hover {
+  color: #ff7b00d2;
+  text-decoration: none;
+}
+/* ---------------------------END Navbar-------------- */
+
+/*--------------------------------------------------------------
+  # Disable aos animation delay on mobile devices
+  --------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+  # Hero Section
+  --------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.548), rgba(47, 46, 46, 0.342)),
+    url("../../../All Images/HighCrest_Images/Rooms/images/room cover1.jpg") top
+      center;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero h1 {
+  margin: 0;
+  font-size: 50px;
+  line-height: 56px;
+  color: #fff;
+  margin-left: 49rem;
+  font-family: "Roboto slab", cursive;
+}
+.returnhome {
+  margin: 0;
+  font-size: 50px;
+  line-height: 56px;
+  color: #fff;
+  margin-left: 40rem;
+  font-family: "Roboto slab", cursive;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  margin-left: 42rem;
+}
+.line div:nth-child(1),
+.line div:nth-child(3) {
+  height: 3px;
+  width: 150px;
+  background: #ff3c00b4;
+  border-radius: 5px;
+}
+
+.line div {
+  margin: 0 0.3rem;
+}
+.line div:nth-child(2) {
+  width: 10px;
+  height: 10px;
+  background: #ff3c00b4;
+  border-radius: 50%;
+}
+.line div:nth-child(1),
+.line div:nth-child(3) {
+  height: 3px;
+  width: 150px;
+  background: #ff3c00b4;
+  border-radius: 5px;
+}
+
+/* services */
+#services {
+  margin-top: 15rem;
+}
+.roomhigh {
+  margin-top: -40.7rem;
+  left: 27.9rem;
+  width: 95rem;
+  height: 69rem;
+  position: absolute;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 15px rgba(87, 87, 87, 0.486);
+}
+.roomservice1 {
+  width: 60.3rem;
+  height: 60.3rem;
+  border-radius: 1rem;
+}
+.roomservice2 {
+  padding-top: 1.4rem;
+  width: 60.3rem;
+  height: 60.3rem;
+  border-radius: 1rem;
+}
+.textServices {
+  padding-left: 4rem;
+}
+.textServices h1 {
+  margin-top: 4.1rem;
+  color: chocolate;
+  font-size: 3.1rem;
+  line-height: 8rem;
+  font-weight: bolder;
+  font-family: "Montagu Slab", serif;
+  margin-left: 8.1rem;
+}
+.textServices p {
+  font-size: 1.7rem;
+  color: black;
+  line-height: 2rem;
+  margin-left: 8.1rem;
+  font-family: "Montagu Slab", serif;
+}
+.textServices span {
+  color: chocolate;
+  font-size: 3.1rem;
+}
+.textServices ul {
+  margin-left: 8.1rem;
+  margin-top: 2.1rem;
+  list-style-type: none;
+}
+
+.textServices ul li {
+  transition: 0.3s;
+  font-family: "Montagu Slab", serif;
+}
+.textServices ul li::before {
+  content: "\2022";
+  color: chocolate;
+  font-weight: bolder;
+  display: inline-block;
+  font-size: 2.6rem;
+  width: 3rem;
+}
+
+.blog-card {
+  position: absolute;
+  height: 400px;
+  width: 95%;
+  max-width: 850px;
+  margin: auto;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0px 10px 50px rgba(112, 110, 110, 0.459);
+  margin-top: 4rem;
+  margin-left: 5rem;
+  overflow: hidden;
+}
+
+.inner-part {
+  position: absolute;
+  display: flex;
+  height: 360px;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+}
+#imgTap:checked ~ .inner-part {
+  padding: 0;
+  transition: 0.1s ease-in;
+}
+.inner-part .img {
+  height: 370px;
+  width: 260px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.133);
+  margin-top: 4rem;
+}
+
+#imgTap:checked ~ .inner-part .img {
+  height: 370px;
+  width: 850px;
+  z-index: 99;
+  margin-top: 10px;
+  transition: 0.3s 0.2s ease-in;
+}
+.img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.6s;
+}
+img:hover {
+  filter: grayscale(100%);
+}
+
+#tap-1:checked ~ .inner-part .img-1,
+#tap-2:checked ~ .inner-part .img-2,
+#tap-3:checked ~ .inner-part .img-3 {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+.content {
+  padding: 0 20px 0 35px;
+  width: 530px;
+  margin-left: 50px;
+  opacity: 0;
+  transition: 0.6s;
+}
+#imgTap:checked ~ .inner-part .content {
+  display: none;
+}
+#tap-1:checked ~ .inner-part .content-1,
+#tap-2:checked ~ .inner-part .content-2,
+#tap-3:checked ~ .inner-part .content-3 {
+  opacity: 1;
+  margin-left: 0px;
+  z-index: 100;
+  transition-delay: 0.3s;
+}
+.content span {
+  display: block;
+  color: #7b7992;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "Roboto slab", cursive;
+}
+.content .title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0d0925;
+  margin-bottom: 20px;
+  font-family: "Roboto slab", cursive;
+}
+.content .text {
+  color: #4e4a67;
+  font-size: 19px;
+  margin-bottom: 30px;
+  line-height: 1.5em;
+  text-align: justify;
+  font-family: "Roboto slab", cursive;
+}
+.content button {
+  display: inline-flex;
+  padding: 15px 20px;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #fff0e6;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(147deg, #e7670c9f 0%, #8d2b2bc4 74%);
+  font-family: "Roboto slab", cursive;
+}
+.content button:hover {
+  background: linear-gradient(147deg, #f18d0a 0%, #ddbcbc 74%);
+}
+.sliders {
+  position: absolute;
+  bottom: 25px;
+  left: 65%;
+  transform: translateX(-50%);
+  z-index: 12;
+}
+#imgTap:checked ~ .sliders {
+  display: none;
+}
+.sliders .tap {
+  position: relative;
+  height: 10px;
+  width: 50px;
+  background: #d9d9d9;
+  border-radius: 5px;
+  display: inline-flex;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.sliders .tap:hover {
+  background: #cccccc;
+}
+.sliders .tap:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: -100%;
+  background: linear-gradient(147deg, #e7670c9f 0%, #8d2b2bc4 74%);
+  border-radius: 10px;
+  transform: scaleX(0);
+  transition: transform 0.6s;
+  transform-origin: left;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+#tap-1:checked ~ .sliders .tap-1:before,
+#tap-2:checked ~ .sliders .tap-2:before,
+#tap-3:checked ~ .sliders .tap-3:before {
+  transform: scaleX(1);
+  width: 100%;
+}
+
+
+.room-gallery {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -38rem;
+  margin-left: 50rem;
+}
+.room-description {
+  margin-left: 5rem;
+  margin-top: 20rem;
+  width: 37%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0d47660;
+  color: rgb(41, 41, 41);
+  height: 30rem;
+  border-radius: 10rem;
+  box-shadow: 5px 5px 15px rgba(51, 50, 49, 0.26);
+}
+.room-description h1 {
+  padding: 10px;
+  font-size: 60px;
+  font-family: "Montagu Slab", serif;
+}
+.room-description p {
+  font-size: 30px;
+  font-family: "Montagu Slab", serif;
+}
+
+.gallery-hightlight {
+  width: 80%;
+  height: 50%;
+  border-radius: 3rem 3rem 0 0;
+}
+
+.room-preview {
+  display: flex;
+  width: 80%;
+  border: 3px solid #726e6994;
+  border-radius: 0 0 1rem 1rem;
+}
+.room-preview img {
+  flex-grow: 1;
+  height: 100px;
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+}
+
+img.room-active {
+  opacity: 1;
+}
+
+.textServices-blog {
+  padding-left: 76rem;
+  margin-top: 4rem;
+  margin-right: 2rem;
+}
+.textServices-blog h1 {
+  color: chocolate;
+  font-size: 2.5rem;
+  line-height: 3.6rem;
+  margin-left: 8.1rem;
+  font-family: "Roboto slab", cursive;
+}
+.textServices-blog p {
+  font-size: 1.7rem;
+  color: black;
+  line-height: 2rem;
+  margin-left: 8.1rem;
+  font-family: "Roboto slab", cursive;
+}
+.textServices-blog ul {
+  margin-left: 8.1rem;
+  margin-top: 2.1rem;
+  list-style-type: none;
+}
+
+.textServices-blog ul li {
+  transition: 0.3s;
+  font-family: "Montagu Slab", serif;
+}
+.textServices-blog ul li::before {
+  content: "\2022";
+  color: chocolate;
+  font-weight: bolder;
+  display: inline-block;
+  font-size: 2.6rem;
+  letter-spacing: 1.2rem;
+}
+
+.about-section {
+  background: url("../../../All Images/HighCrest_Images/Rooms/images/room cover1.jpg")
+    no-repeat left;
+  background-size: 55%;
+  overflow: hidden;
+  padding: 100px 0;
+  margin-left: 5rem;
+}
+
+.inner-container {
+  width: 55%;
+  float: right;
+  padding: 190px;
+}
+
+.inner-container h1 {
+  margin-bottom: 60px;
+  color: chocolate;
+  font-size: 30px;
+  font-family: "Montagu Slab", serif;
+}
+
+.text {
+  font-size: 13px;
+  color: #545454;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+  font-family: "Montagu Slab", serif;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 13px;
+  color: chocolate;
+  font-family: "Montagu Slab", serif;
+}
+.skills span {
+  transition: 0.5s;
+}
+
+.show-btn {
+  background: rgba(245, 113, 36, 0.726);
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Montagu Slab", serif;
+  margin-left: 18rem;
+  border-radius: 5rem;
+  margin-top: 51rem;
+}
+.show-btn,
+.container {
+  position: absolute;
+  top: 339%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+}
+
+.footer {
+  background: rgb(34, 33, 33);
+  height: 60vh;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 2rem 0;
+  padding-left: 2rem;
+  font-family: "Noto serif", "serif";
+}
+.footer .box-container .box .news {
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  padding: 2rem 0;
+  font-family: "Noto serif", "serif";
+}
+.footer .box-container .box p {
+  font-size: 2rem;
+  color: rgb(240, 233, 233);
+  font-family: "Montagu Slab", serif;
+}
+.footer .box-container .box a {
+  font-size: 1.6rem;
+  color: rgb(255, 250, 250);
+  padding: 1rem 0;
+  display: block;
+  text-decoration: none;
+}
+
+.footer .box-container .box a:hover {
+  color: #ff9900;
+  -webkit-transition: 0.6s ease;
+  -moz-transition: 0.6s ease;
+  -ms-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.footer .box-container .box a:hover i {
+  padding-right: 1rem;
+  -webkit-transition: 0.6s ease;
+  -moz-transition: 0.6s ease;
+  -ms-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.footer .box-container .box a i {
+  padding-left: 2rem;
+  color: #ff9900;
+}
+.footer .box-container .box form input[type="email"] {
+  width: 80%;
+  padding: 1rem 1.2rem;
+  font-size: 1.3rem;
+  color: #222;
+  margin: 1rem 0;
+  text-transform: none;
+}
+.btn-one {
+  color: rgba(255, 123, 0, 0.911);
+  transition: all 0.3s;
+  position: relative;
+  font-size: 1.7rem;
+}
+.btn-one span {
+  transition: all 0.3s;
+  color: rgba(255, 123, 0, 0.911);
+  margin-right: 30rem;
+}
+.btn-one::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+  letter-spacing: 2px;
+}
+.btn-one:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+.btn-one::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(51, 50, 50, 0.171);
+}
+.btn-one:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+.footer .box-container .box .payment {
+  width: 80%;
+  margin-top: 1rem;
+}
+.credit {
+  text-align: center;
+  background: rgb(29, 28, 28);
+  color: #fff;
+  font-size: 2.3rem;
+  padding: 1 rem;
+}
+
+
+.container {
+  display: none;
+  background: rgb(255, 255, 255);
+  width: 100px;
+  padding: 20px;
+  border-radius: 3rem;
+}
+
+#show:checked ~ .container {
+  display: block;
+  position: fixed;
+  top: -4px;
+  background-color: #fffffff3;
+}
+.container .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  color: chocolate;
+}
+
+.about-section .btn {
+  background: chocolate;
+  padding: 10px;
+  text-align: center;
+  color: #f8f8f8;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 99%;
+  margin-top: 7px;
+  font-family: "Montagu Slab", serif;
+}
+
+.container .text {
+  font-size: 37px;
+  font-weight: 600;
+  text-align: center;
+  color: #f59300;
+}
+.container form {
+  margin-top: -14px;
+}
+
+.input {
+  padding: 13px 0px 13px 25px;
+  width: 100%;
+  text-align: center;
+  border-radius: 3rem;
+  outline: none;
+  font-size: 16px;
+  color: #fbfbfb;
+  background-color: #ffffff;
+  border: 4px solid #f59300;
+}
+.label {
+  font-family: "Montagu Slab", serif;
+  margin-left: 2rem;
+}
+.card-grp {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-item {
+  width: 48%;
+}
+
+.space {
+  margin-bottom: 10px;
+  border: none;
+}
+
+.icon-relative {
+  position: relative;
+}
+
+.icon-relative .fas,
+.icon-relative .far {
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 20px;
+  color: #555555;
+}
+
+.btn {
+  margin-top: 40px;
+  background: #2196f3;
+  padding: 12px;
+  text-align: center;
+  color: #f8f8f8;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.profile-img{
+border-radius: 50%;
+top: -60px;
+ width: 60px;
+}
+

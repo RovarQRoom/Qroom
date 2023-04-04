@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Room</title>
+    <link rel="stylesheet" href="../../CSS/HighCrest_CSS/AllRooms/rommallcss.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <!-- ama bo image gallery -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Vendor CSS Files -->
+    <link href="../../HighCrest_Assets/Rooms_Assets/Assets/vendor/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="../../HighCrest_Assets/Rooms_Assets/Assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="../../HighCrest_Assets/Rooms_Assets/Assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+
+    <link href="../../assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+    <link href="../../HighCrest_Assets/Resturant_Assets/Assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../HighCrest_Assets/Resturant_Assets/Assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/4.0.0/iconfont/material-icons.min.css" referrerpolicy="no-referrer" />
+    <title>QRoom</title>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caramel&family=Explora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../CSS/HighCrest_CSS/AllRooms/nav.css">
+    <link rel="stylesheet" href="../../CSS/HighCrest_CSS/Navigation/model.css">
+    <!-- <link rel="stylesheet" href="../../CSS/HighCrest_CSS/Navigation/Navigation.css"> -->
+    <!-- link move the city -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <!-- ama bo about slider ka la swiper henawma   -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- ama icon bakrhenawa ka la search bar neshan dadret -->
+    <link rel="icon" href="../../All Images/HighCrest_Images/About/image/image search bar .png">
+
+</head>
+
+<body>
+    <!-- Header Section Start-->
+    <%- include("../../../partials/HighCrestPartials/MainPartials/Header.ejs") %>
+        <!-- Header Section End -->
+
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container  ">
+                <div class="row">
+                    <div class="col-lg-12 room-desgin">
+                        <h1 style="font-size: 5rem; margin-left: 28rem;font-family: 'Roboto Slab', serif;">ROOMS</h1>
+                        <div class="line">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <p class="returnhome" style="font-family: 'Roboto Slab', serif;"><a href="/HighCrest" style="text-decoration: none; font-size: 3.9rem;font-family: 'Roboto Slab', serif; color: rgba(250, 125, 0, 0.856);">Home
+                                >> </a>ROOMS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Hero -->
+
+        <!-- Slider Main Container Start -->
+        <section id="featured-rooms">
+            <div class="container my-5 py-5">
+                <div id="section-title">
+                    <h2 style="margin-top: 10rem;margin-bottom: 5rem;font-size: 3.1rem;font-family: 'Roboto Slab', serif;">
+                        Best Place To Stay </h2>
+                </div>
+                <div class="row custom-room-cards">
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="../All Images/HighCrest_Images/AllRooms/images/room cover1.jpg" alt="Family Room">
+                            </div>
+                            <div class="card-footer">
+                                <div class="label" style="font-size: 2.1rem;font-family: Lobster, cursive; ">Price</div>
+                                <div class="price" style="font-size: 2.1rem;background-color: rgba(240, 248, 255, 0.548);    color: rgb(145, 23, 23);
+                      font-family: Lobster, cursive; ">&nbsp;$60/day</div>
+                                <div class="footer-body" style="font-size: 2.1rem; background-color: rgba(240, 248, 255, 0.548);font-family: Lobster, cursive;">
+                                    Family Room</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="../All Images/HighCrest_Images/AllRooms/images/room2.jpg" alt="Young Room">
+                            </div>
+                            <div class="card-footer">
+                                <div class="label" style="font-size: 2.1rem;font-family: Lobster, cursive; ">Price</div>
+                                <div class="price" style="font-size: 2.1rem;background-color: rgba(240, 248, 255, 0.548);    color: rgb(145, 23, 23);
+                    font-family: Lobster, cursive; ">&nbsp;$60/day</div>
+                                <div class="footer-body" style="font-size: 2.1rem; background-color: rgba(240, 248, 255, 0.548);font-family: Lobster, cursive;">
+                                    Young Room</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="../All Images/HighCrest_Images/AllRooms/images/highcrest room.jpg" alt="HighCrest Room">
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-footer">
+                                    <div class="label" style="font-size: 2.1rem;font-family: Lobster, cursive; ">Price
+                                    </div>
+                                    <div class="price" style="font-size: 2.1rem;background-color: rgba(240, 248, 255, 0.548);    color: rgb(145, 23, 23);
+                      font-family: Lobster, cursive; ">&nbsp;$60/day</div>
+                                    <div class="footer-body" style="font-size: 2.1rem; background-color: rgba(240, 248, 255, 0.548);font-family: Lobster, cursive;">
+                                        VIP Room</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="../All Images/HighCrest_Images/AllRooms/images/child room.jpg" alt="Child Room">
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-footer">
+                                    <div class="label" style="font-size: 2.1rem;font-family: Lobster, cursive; ">Price
+                                    </div>
+                                    <div class="price" style="font-size: 2.1rem;background-color: rgba(240, 248, 255, 0.548);    color: rgb(145, 23, 23);
+                      font-family: Lobster, cursive; ">&nbsp;$60/day</div>
+                                    <div class="footer-body" style="font-size: 2.1rem; background-color: rgba(240, 248, 255, 0.548);font-family: Lobster, cursive;">
+                                        Child Room</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slider Main Container Middle -->
+
+        <section id="decoration-accomodation">
+            <div class="container my-5 py-5">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="content">
+                            <div class="section-title">
+                                <h2>Choose The Perfect Place For Your Bussiness</h2>
+                            </div>
+                            <p><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus cupiditate, ratione, neque error vero sed earum molestias magni nisi culpa obcaecati cum accusantium repudiandae itaque dolores vitae excepturi officia
+                                nihil.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-7 card-container">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="../All Images/HighCrest_Images/AllRooms/images/metingRoom3.png" alt="Meeting Room">
+                            </div>
+                            <div class="card-footer">Meeting Room</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="../All Images/HighCrest_Images/AllRooms/images/confrance.jpg" alt="Conference Room">
+                            </div>
+                            <div class="card-footer">Conference Room</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Slider Main Container End -->
+
+        <!-- Blog Section Start -->
+        <section id="blog">
+            <div class="container">
+                <div class="row">
+                    <h1> ALL <span>ROOM</span></h1>
+                    <div class="col-md-6 left">
+                        <img src="../All Images/HighCrest_Images/AllRooms/images/highcrest room.jpg" class="img-fluid" alt="blog left">
+                        <div class="info-area">
+                            <h4>Room HighCrest / SELEMANI</h4>
+                            <p id="price-room">$30.00 / Per Night</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores itaque dicta eligendi iure maiores omnis velit quis. Quas accusamus, nostrum soluta id natus ad dolores facere inventore provident quidem est.
+                                <br><i class="fas fa-toilet-paper" id="icon-room"></i><i class="fas fa-concierge-bell" id="icon-room"></i><i class="fas fa-bath" id="icon-room"></i><i class="fas fa-smoking-ban" id="icon-room"></i><i class="fas fa-swimming-pool"
+                                    id="icon-room"></i>
+                            </p>
+                            <% if(user){ %>
+                                <a href="/HighCrest/Room" target="_blank">View Room</a>
+                                <% }else{ %>
+                                    <a href="/Login" target="_blank">View Room</a>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6 right ">
+                        <img src="../All Images/HighCrest_Images/AllRooms/images/room2.jpg" class="img-fluid" alt="blog right">
+                        <div class="info-area">
+                            <h4>Room HighCrest / SELEMANI</h4>
+                            <p id="price-room">$30.00 / Per Night</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores itaque dicta eligendi iure maiores omnis velit quis. Quas accusamus, nostrum soluta id natus ad dolores facere inventore provident quidem est.
+                                <br><i class="fas fa-toilet-paper" id="icon-room"></i><i class="fas fa-concierge-bell" id="icon-room"></i><i class="fas fa-bath" id="icon-room"></i><i class="fas fa-smoking-ban" id="icon-room"></i><i class="fas fa-swimming-pool"
+                                    id="icon-room"></i>
+                            </p>
+                            <% if(user){ %>
+                                <a href="/HighCrest/Room" target="_blank">View Room</a>
+                                <% }else{ %>
+                                    <a href="/Login" target="_blank">View Room</a>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6 left">
+                        <img src="../All Images/HighCrest_Images/AllRooms/images/highcrest room.jpg" class="img-fluid" alt="blog left">
+                        <div class="info-area">
+                            <h4>Room HighCrest / SELEMANI</h4>
+                            <p id="price-room">$30.00 / Per Night</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores itaque dicta eligendi iure maiores omnis velit quis. Quas accusamus, nostrum soluta id natus ad dolores facere inventore provident quidem est.
+                                <br><i class="fas fa-toilet-paper" id="icon-room"></i><i class="fas fa-concierge-bell" id="icon-room"></i><i class="fas fa-bath" id="icon-room"></i><i class="fas fa-smoking-ban" id="icon-room"></i><i class="fas fa-swimming-pool"
+                                    id="icon-room"></i>
+                            </p>
+                            <% if(user){ %>
+                                <a href="/HighCrest/Room" target="_blank">View Room</a>
+                                <% }else{ %>
+                                    <a href="/Login" target="_blank">View Room</a>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6 right">
+                        <img src="../All Images/HighCrest_Images/AllRooms/images/room2.jpg" class="img-fluid" alt="blog right">
+                        <div class="info-area">
+                            <h4>Room HighCrest / SELEMANI</h4>
+                            <p id="price-room">$30.00 / Per Night</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores itaque dicta eligendi iure maiores omnis velit quis. Quas accusamus, nostrum soluta id natus ad dolores facere inventore provident quidem est.
+                                <br><i class="fas fa-toilet-paper" id="icon-room"></i><i class="fas fa-concierge-bell" id="icon-room"></i><i class="fas fa-bath" id="icon-room"></i><i class="fas fa-smoking-ban" id="icon-room"></i><i class="fas fa-swimming-pool"
+                                    id="icon-room"></i>
+                            </p>
+                            <% if(user){ %>
+                                <a href="/HighCrest/Room" target="_blank">View Room</a>
+                                <% }else{ %>
+                                    <a href="/Login" target="_blank">View Room</a>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6 left">
+                        <img src="../All Images/HighCrest_Images/AllRooms/images/highcrest room.jpg" class="img-fluid" alt="blog left">
+                        <div class="info-area">
+                            <h4>Room HighCrest / SELEMANI</h4>
+                            <p id="price-room">$30.00 / Per Night</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores itaque dicta eligendi iure maiores omnis velit quis. Quas accusamus, nostrum soluta id natus ad dolores facere inventore provident quidem est.
+                                <br><i class="fas fa-toilet-paper" id="icon-room"></i><i class="fas fa-concierge-bell" id="icon-room"></i><i class="fas fa-bath" id="icon-room"></i><i class="fas fa-smoking-ban" id="icon-room"></i><i class="fas fa-swimming-pool"
+                                    id="icon-room"></i>
+                            </p>
+                            <% if(user){ %>
+                                <a href="/HighCrest/Room" target="_blank">View Room</a>
+                                <% }else{ %>
+                                    <a href="/Login" target="_blank">View Room</a>
+                                    <% } %>
+                        </div>
+                    </div>
+                    <div class="col-md-6 right">
+                        <img src="../All Images/HighCrest_Images/AllRooms/images/room2.jpg" class="img-fluid" alt="blog right">
+                        <div class="info-area">
+                            <h4>Room HighCrest / SELEMANI</h4>
+                            <p id="price-room">$30.00 / Per Night</p>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores itaque dicta eligendi iure maiores omnis velit quis. Quas accusamus, nostrum soluta id natus ad dolores facere inventore provident quidem est.
+                                <br><i class="fas fa-toilet-paper" id="icon-room"></i><i class="fas fa-concierge-bell" id="icon-room"></i><i class="fas fa-bath" id="icon-room"></i><i class="fas fa-smoking-ban" id="icon-room"></i><i class="fas fa-swimming-pool"
+                                    id="icon-room"></i>
+                            </p>
+                            <% if(user){ %>
+                                <a href="/HighCrest/Room" target="_blank">View Room</a>
+                                <% }else{ %>
+                                    <a href="/Login" target="_blank">View Room</a>
+                                    <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section End -->
+
+        <!-- Download Section -->
+        <section id="download">
+            <!-- lera bas amlay lay right ka click krda sare datwane fill bgret bo aw rengay ka atawe  -->
+            <div class="component"><img src="../All Images/HighCrest_Images/AllRooms/images/images/component.svg" alt="Component">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 textDownload">
+                        <h1><span style="font-size: 2.1rem; color: black;">Download</span> Our App For Booking Room <br> and get the News</h1>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna
+                        </p>
+                        <a href=""><img src="../All Images/HighCrest_Images/AllRooms/images/icons/android.svg" class="img-fluid android" alt="Android"></a>
+
+                        <a href=""><img src="../All Images/HighCrest_Images/AllRooms/images/icons/apple.svg" class="img-fluid apple" alt="Apple"></a>
+
+                    </div>
+                    <div class="col-md-5 imageDownload">
+                        <img class="mockup" src="https://cdn-icons-png.flaticon.com/512/2038/2038035.png" height="40%" class="img-fluid" alt="mockup">
+                        <h1>GET 10% OFF <br> FOR EVERY <br> Booking!
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Download Section -->
+
+        <!-- Footer Section Starts  -->
+        <%- include("../../../partials/HighCrestPartials/MainPartials/Footer.ejs") %>
+            <!-- Footer Section Ends -->
+
+            <!-- The Scripts Files -->
+            <script src="../javaScript/HighCrest_Scripts/Navigation/Navigation.js"></script>
+
+            <!-- Slider The All -->
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+            <script type="text/javascript" src="../javaScript/HighCrest_Scripts/AllRooms/javaScript/slider.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+            <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+            <script src="../javaScript/HighCrest_Scripts/AllRooms/javaScript/javaScript.js"></script>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+            <script src="../javaScript/HighCrest_Scripts/AllRooms/javaScript/aos.js"></script>
+            <script src="../javaScript/HighCrest_Scripts/AllRooms/javaScript/javaScript.js"></script>
+            <script src="../javaScript/HighCrest_Scripts/AllRooms/javaScript/slider.js"></script>
+            <script src="../javaScript/HighCrest_Scripts/AllRooms/javaScript/aos.js"></script>
+
+            <!-- gsap -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+            <!-- amayan bo jquery bakare dahene about  -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+            <script src="../javaScript/HighCrest_Scripts/Main/Javascript/aos.js"></script>
+            <!-- amash bo jsy swpiper y about   -->
+            <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+            <script src="../javaScript/HighCrest_Scripts/AllRooms/roomall.js"></script>
+</body>
+
+</html>

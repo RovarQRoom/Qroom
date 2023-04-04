@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../All Images/Main_Images/images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/3973ff0208.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../CSS/Profile_CSS/profile.css">
+</head>
+
+<body>
+
+    <!-- Start of Profile -->
+    <h1><a href="/Home"><i class="fa-solid fa-arrow-left"></i></a></h1>
+    <center>
+        <div class="box">
+            <form action="/Profile/<%= user._id %>" method="post">
+                <% if(Image!=undefined){ %>
+                    <img src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" alt="ProfilePicture"></image>
+                    <% }else{ %>
+                        <img src="../../All Images/Profile_Images/user.png" alt="ProfilePicture"></image>
+                        <% } %>
+                            <!-- <input type="file" name="ProfileImage" id="file" accept="image/*"> -->
+                            <label for="file"><a style="font-weight: bold;text-decoration: none; color: aliceblue;"
+                                    href="/Profile/<%= user._id %> /Picture">Edit Picture</a></label>
+
+                            <input type="text" name="name" placeholder="Your Name" value="<%=user.name%> ">
+
+                            <input type="email" name="email" placeholder="Email ID" value="<%=user.email %>">
+
+                            <input type="text" id="in-Phone" name="phoneNumber" placeholder="Phone Number" value="<%=user.phoneNumber %>">
+                            <select id="country" style="display: none;">
+                                <option value="IQ">&#x1F1EE;&#x1F1F6; Iraq</option>
+                            </select>
+
+                            <input type="password" name="currentPass" placeholder="Current Password">
+
+                            <input type="password" name="newPass" placeholder="New Password">
+
+                            <input type="password" name="confirmPass" placeholder="Confirm Password">
+                            <!-- <button style="float: left;margin: 10px 0 0 18.2%;">Cancel</button> -->
+                            <button style="display: flex;justify-content: center;align-items: center;margin-top:30px ;">Update</button>
+            </form>
+        </div>
+    </center>
+    <!-- End of Profile -->
+
+    <script src="../../javaScript/Signup_Scripts/PhoneField_Scripts/cleave.js"></script>
+    <script src="../../javaScript/Signup_Scripts/PhoneField_Scripts/cleave-phone.i18n.js"></script>
+    <script>
+        var cleave = new Cleave("#in-Phone", {
+            phone: true,
+            phoneRegionCode: "IQ"
+        });
+        $("#Select Country").change(function() {
+            cleave.setPhoneRegionCode(this.value);
+            cleave.setRawValue('');
+        })
+    </script>
+
+    <script>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <link rel="stylesheet" href="CSS/Search_CSS/nav.css">
+    <link rel="stylesheet" href="CSS/Search_CSS/StarsRating/stars.css">
+    <link rel="stylesheet" href="CSS/Search_CSS/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" href="All Images/Serach_Images/images/logo.png">
+
+    <!-- BoxIcons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Stars Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="CSS/Search_CSS/Price_Range/price_range_style.css">
+    <script src="javaScript/Search_Scripts/Price_Range/price_range_script.js"></script>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus icon'></i>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <% if(user){ %>
+                    <a href="/Profile/<%=user._id%> ">
+                        <!-- <i class='bx bx-user'> -->
+                        <% if(Image){ %>
+                            <img class='bx bx-user' src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" alt="profileImg">
+                            <% }else{ %>
+                                <p>Nothing To See Here</p>
+                                <% } %>
+                                    <!-- </i> -->
+                                    <span class="links_name">
+                                        <%=user.name%>
+                                    </span>
+                    </a>
+                    <span class="tooltip">
+                        <%=user.name + ' --Profile' %>
+                    </span>
+                    <% }else{ %>
+                        <a href="/Login" class='bx bx-user'></a>
+                        <span class="tooltip">
+                            Please Login/Signup
+                        </span>
+                        <% } %>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Saved</span>
+                </a>
+                <span class="tooltip">Saved</span>
+            </li>
+            <li>
+                <a href="/Logout">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Logout</span>
+                </a>
+                <span class="tooltip">Logout</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <div class="name_job">
+                        <% if(user){ %>
+                            <div class="name">
+                                <% user.name %>
+                            </div>
+                            <% }else{} %>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Sidebar End -->
+
+    <!-- Home Section Start -->
+    <section class="home-section">
+        <div class="home_section__container">
+            <% if(search){ %>
+                <h1 style="  font-family: 'Courgette', cursive; margin-left: 18rem;margin-bottom: 2rem; font-size: 2rem;">
+                    <%=search.Location %> we found <span>
+                            <%= count %>
+                        </span> Hotels
+                </h1>
+                <% }else{ %>
+                    <h1 style="  font-family: 'Courgette', cursive; margin-left: 18rem;margin-bottom: 2rem; font-size: 2rem;">
+                        In Kurdistan We found <span>
+                            <%= count %>
+                        </span> Hotels</h1>
+                    <% } %>
+        </div>
+        <!-- Home Section End -->
+
+        <!-- Container Start -->
+        <section class="buttom-filter">
+            <div class="first">
+                <h1 class="star_text" style="margin: 5px; font-family: 'Courgette', cursive;">Star Raiting </h1>
+                <label class="form-control">
+                    <input type="checkbox" name="checkbox-checked" />3 star</label>
+                <label class="form-control">
+                    <input type="checkbox" name="checkbox-checked" />4 star</label>
+                <label class="form-control">
+                    <input type="checkbox" name="checkbox-checked" />5 star</label>
+            </div>
+
+            <div class="secound">
+                <h1 class="star_text" style="margin: 5px;     font-family: 'Courgette', cursive;">Price/Neight </h1>
+
+                <label class="form-control">
+                    <input type="checkbox" name="checkbox-checked" />
+                    $50</label>
+                <label class="form-control">
+                    <input type="checkbox" name="checkbox-checked" />
+                    $100 to $200
+                </label>
+                <label class="form-control">
+                    <input type="checkbox" name="checkbox-checked" />
+                    $300 to $500
+                </label>
+            </div>
+        </section>
+        <!-- Container End -->
+
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <% Find.forEach(find=> { %>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="content flow">
+                            <div class="even-column">
+                                <div class="col-left">
+                                    <img src="All Images/Search_Images/images/<%=find.Name.toLowerCase()%>.jpg" alt="Highcrest Hotel">
+                                    <h3> <i class="fas fa-map-marker-alt"></i>
+                                        <%=find.City %> / Hotels
+                                    </h3>
+                                </div>
+                                <div class="col-right">
+                                    <h1>
+                                        <%=find.City %> /
+                                            <%=find.Name%>
+                                                <% for(let i=0; i<find.Stars;i++){ %>
+                                                    <i class="fas fa-star" id="star" style="color: rgb(255, 255, 83);"></i>
+                                                    <%}%>
+                                    </h1>
+                                    <p><i class="  icon-content"></i> Location:
+                                        <%= find.Address %> <i style="color: chocolate; font-size: 2rem" class="fas fa-map-marker-alt"></i>
+                                    </p>
+                                    <p><i class="  icon-content"></i> Price:
+                                        <%= find.Price %> <i style="color: chocolate;font-size: 2rem;" class="fas fa-dollar-sign icon-content-space"></i>
+                                    </p>
+                                    <p><i class="  icon-content"></i> Service 24/7<i style="color: chocolate; font-size: 2rem;" class="fas fa-concierge-bell icon-content-space"></i></i>
+                                    </p>
+                                    <p><i class="  icon-content"></i> Activity 24/7<i style="color: chocolate; font-size: 2rem;" class="fas fa-history icon-content-space"></i></p>
+                                    <a href="/HighCrest/AllRooms" class="btn-col-left"> Show Rooms</a>
+                                    <div class="contact-mapp">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12983<%=find.Map%>" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <% if(search){ %>
+            <div class="right-panel">
+                <form action="/Search" method="post">
+                    <div class="title-right-panel">
+                        <h1 style="font-family: 'Courgette', cursive;font-size: 2rem;padding-left: 30px;"> Search
+                        </h1>
+                    </div>
+                    <div class="card-right-panel">
+                        <label for=""> Location </label>
+                        <select name="location-right-panel" class="input">
+                            <% if(search.Location.toUpperCase()=="Sulaymaniyah" .toUpperCase() ){%>
+                                <option selected>Sulaymaniyah</option>
+                                <option>Hawler</option>
+                                <option>Duhok</option>
+                                <%}else if(search.Location.toUpperCase()=="Hawler" .toUpperCase() ) {%>
+                                    <option>Sulaymaniyah</option>
+                                    <option selected>Hawler</option>
+                                    <option>Duhok</option>
+                                    <% }else{ %>
+                                        <option>Sulaymaniyah</option>
+                                        <option>Hawler</option>
+                                        <option selected>Duhok</option>
+                                        <% } %>
+                        </select>
+                        <!-- <input type="text" class="input" name="location-right-panel" placeholder="" value=""> -->
+                    </div>
+                    <div class="card-right-panel">
+                        <label for=""> Check-In-Date </label>
+                        <input type="date" class="input" name="check-in-right-panel" placeholder="" value="<%=search.Check_In_Date%>">
+                    </div>
+                    <div class="card-right-panel">
+                        <label for=""> Check-Out-Date </label>
+                        <input type="date" class="input" name="check-out-right-panel" placeholder="" value="<%=search.Check_Out_Date%>">
+                    </div>
+                    <p class="information-user">1/Night Stay</p>
+                    <div class="card-right-panel">
+                        <input type="number" class="input" name="adult-panel" placeholder="" value="<%=search.Adults%>">
+                    </div>
+                    <div class="card-right-panel">
+                        <input type="number" class="input" name="children-panel" placeholder="" value="<%=search.Children%>">
+                    </div>
+                    <div class="card-right-panel">
+                        <input type="number" class="input" name="room-panel" placeholder="" value="<%=search.Rooms%>">
+                    </div>
+                    <div class="card-right-panel">
+                    </div>
+
+                </form>
+            </div>
+            <% }else{ %>
+                <div class="right-panel">
+                    <form action="/Search" method="post">
+                        <div class="title-right-panel">
+                            <h1 style="    font-family: 'Courgette', cursive;font-size: 2rem;padding-left: 30px;">
+                                Search
+                            </h1>
+                        </div>
+                        <div class="card-right-panel">
+                            <label for=""> Location </label>
+                            <select name="location-right-panel" class="input">
+                                <option selected>All Locations</option>
+                                <option>Sulaymaniyah</option>
+                                <option>Hawler</option>
+                                <option>Duhok</option>
+                            </select>
+                        </div>
+                        <div class="card-right-panel">
+                            <label for=""> Check-In-Date </label>
+                            <input type="date" class="input" name="check-in-right-panel" placeholder="-------------">
+                        </div>
+                        <div class="card-right-panel">
+                            <label for=""> Check-Out-Date </label>
+                            <input type="date" class="input" name="check-out-right-panel" placeholder="-------------">
+                        </div>
+                        <p class="information-user">1/Night Stay</p>
+                        <div class="card-right-panel">
+                            <input type="number" class="input" name="adult-panel" placeholder="Adults">
+                        </div>
+                        <div class="card-right-panel">
+                            <input type="number" class="input" name="children-panel" placeholder="Children">
+                        </div>
+                        <div class="card-right-panel">
+                            <input type="number" class="input" name="room-panel" placeholder="Rooms">
+                        </div>
+                        <div class="card-right-panel">
+                        </div>
+
+
+                        <input type="submit" class="btn-search-right-panel fas fa-search" value="Search">
+                    </form>
+                </div>
+                <% } %>
+                    </div>
+    </section>
+    <!-- End of Left Panel -->
+
+    <!-- the navigation  -->
+    <script src="">
+    </script>
+    <!-- end of navigation  -->
+</body>
+
+</html>

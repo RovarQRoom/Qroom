@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&display=swap');
+
+
+
+
+
+.notification-box {
+  background-color: white;
+  margin-top: 10px;
+  width: 470px;
+  position: absolute;
+  height:0rem;
+  opacity: 0;
+  top: 63px;
+  right: 35px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1.2rem;
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #fa7b04;
+}
+
+.notification-box h2 {
+  font-size: 20px;
+  padding: 14px;
+  border-bottom: 2px solid rgba(191, 185, 185, 0.521);
+  color: #999;
+}
+
+.notification-box h2 span {
+  color: #f00;
+}
+
+.notification-item {
+  display: flex;
+  border-bottom: 1px solid rgba(191, 185, 185, 0.521);
+  padding: 4px 5px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.notification-item:hover {
+  background-color: #eee;
+}
+
+.notification-item .textBox h4 {
+  color:#f6000096;
+  font-size: 20px;
+  margin-top: 10px;
+  font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+.notification-item .textBox p {
+  color: rgba(110, 109, 108, 0.686);
+  font-size: 15px;
+}
+
+.Buttons .nav__btn {
+  width: 42.5%;
+  position: relative;
+  text-align: center;
+  border-radius: 2rem;
+  border-bottom: 2px solid rgba(191, 185, 185, 0.521);
+}
+
+.notification-item .notifi__btn {
+  /* width: 50%; */
+  position: relative;
+  text-align: center;
+  border-bottom: 2px solid rgba(191, 185, 185, 0.521);
+  margin-left: 12rem;
+}
+
+.nav__btn {
+  margin: 1rem;
+  display: inline-block;
+  text-align: center;
+  padding: 0.8rem 3rem;
+  background: #c07804be;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.notifi__btn{
+  margin: .4rem;
+  display: inline-block;
+  text-align: center;
+  padding: 0.8rem 3rem;
+  background: #c07804be;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.nav__btn:hover,
+.notifi__btn:hover {
+  background: #222;
+}
+
+.notification-box .Profile_Name h4 {
+  padding: 2.5px;
+  color: #c07804be;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+.notification-box .Profile_Name .Profile_Balance p {
+  padding: 2.5px;
+  color: rgba(0, 0, 0, 0.813);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.notification-box .Profile_Name .Profile_Balance p span {
+  padding: 2.5px;
+  color: rgba(255, 0, 0, 0.813);
+}
+
+.fas {
+  padding-right: 10px;
+  font-size: 32px;
+  color: #222;
+  transition: 0.3s all ease;
+}
+
+.fas:hover {
+  color: #aaa;
+}
