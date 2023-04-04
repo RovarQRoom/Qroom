@@ -44,11 +44,11 @@ server.set("view engine", "ejs");
 mongo_connection(process.env.MONGO_URL, process.env.PORT);
 
 //Links Routes
-const HomeRoutes = require("./Routes/HomeRoutes");
-const UserRoutes = require("./Routes/UserRoutes");
-const SearchRoutes = require("./Routes/SearchRoutes");
-const ProfileRoutes = require("./Routes/ProfileRoutes");
-const HighCrestRoutes = require("./Routes/HighCrestRoutes");
+import HomeRoutes from "./Routes/HomeRoutes";
+import UserRoutes from "./Routes/UserRoutes";
+import SearchRoutes from "./Routes/SearchRoutes";
+import ProfileRoutes from "./Routes/ProfileRoutes";
+import HighCrestRoutes from "./Routes/HighCrestRoutes";
 
 
 

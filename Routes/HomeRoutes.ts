@@ -1,11 +1,11 @@
-const express = require("express");
+import express from "express";
+import { Webpage, About, Reviews, Contact, Map } from "../Controller/HomeController";
 const router = express.Router();
-const HomeController = require("../Controller/HomeController");
 
-router.get("/Home", HomeController.Webpage)
-router.get("/About", HomeController.About);
-router.get("/Reviews", HomeController.Reviews);
-router.get("/Contact", HomeController.Contact);
-router.get("/Map", HomeController.Map);
+router.get("/Home", Webpage)
+router.get("/About", About);
+router.get("/Reviews", Reviews);
+router.get("/Contact", Contact);
+router.get("/Map", Map);
 
-module.exports = router;
+export default router;

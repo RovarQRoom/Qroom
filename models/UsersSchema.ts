@@ -61,20 +61,20 @@ const UserSignInSchema = new Schema({
 
 //Fire a Function Before Doc is Saved
 UserSignUpSchema.pre('save',async function (next){
-    const salt = await bcrypt.genSalt();
-    this.password = await bcrypt.hash(this.password,salt);
-    next();
+    // const salt = await bcrypt.genSalt();
+    // this.password = await bcrypt.hash(this.password,salt);
+    // next();
 });
 
 UserSignUpSchema.statics.Login = async function(email,password){
-    const user = await this.findOne({email});
-    if(user){
-        const auth = await bcrypt.compare(password,user.password);
-        if(auth){
-            return user;
-        }throw Error("Incorrect Password");
+    // const user = await this.findOne({email});
+    // if(user){
+    //     const auth = await bcrypt.compare(password,user.password);
+    //     if(auth){
+    //         return user;
+    //     }throw Error("Incorrect Password");
 
-    }throw Error("Incorrect Email");
+    // }throw Error("Incorrect Email");
 
 }
 

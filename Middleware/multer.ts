@@ -1,6 +1,6 @@
-const multer = require("multer");
+import multer from "multer";
 
-var storage = multer.diskStorage({
+export var storage = multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,"Uploads")
     },
@@ -10,5 +10,3 @@ var storage = multer.diskStorage({
         cb(null,file.fieldname+'-'+Date.now()+ext);
     }
 })
-
-module.exports = store = multer({storage});

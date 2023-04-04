@@ -1,13 +1,13 @@
-const express = require("express");
+import express from "express";
+import { Login_Get, Login_Post, Logout_Get, Signup_Get, Signup_Post } from "../Controller/UsersController";
 const router = express.Router();
-const UserController = require("../Controller/UsersController");
 
-router.get("/Signup", UserController.Signup_Get);
-router.post("/Signup",UserController.Signup_Post);
+router.get("/Signup", Signup_Get);
+router.post("/Signup",Signup_Post);
 
-router.get("/Login", UserController.Login_Get);
-router.post("/Login", UserController.Login_Post);
+router.get("/Login", Login_Get);
+router.post("/Login", Login_Post);
 
-router.get("/Logout", UserController.Logout_Get);
+router.get("/Logout", Logout_Get);
 
-module.exports = router;
+export default router;

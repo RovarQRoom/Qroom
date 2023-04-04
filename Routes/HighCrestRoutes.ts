@@ -1,27 +1,27 @@
 import express from "express";
-import { HighCrestController } from "../Controller/HighCrestController";
+import { HighCrestAbout, HighCrestAllRooms, HighCrestBlog, HighCrestChefsProfiles, HighCrestContacts, HighCrestEvents, HighCrestHome, HighCrestPurchase, HighCrestRestaurants, HighCrestRoom, RemoveEvent } from "../Controller/HighCrestController";
 
 
 const router = express.Router();
 
-router.get("/Search/HighCrest/Home", HighCrestController.HighCrestHome);
-router.get("/Search/HighCrest", HighCrestController.HighCrestHome);
-router.get("/HighCrest/Home", HighCrestController.HighCrestHome);
-router.get("/HighCrest", HighCrestController.HighCrestHome);
+router.get("/Search/HighCrest/Home", HighCrestHome);
+router.get("/Search/HighCrest", HighCrestHome);
+router.get("/HighCrest/Home", HighCrestHome);
+router.get("/HighCrest", HighCrestHome);
 
-router.post("/HighCrest/Purchase", HighCrestController.HighCrestPurchase);
-router.get("/HighCrest/Delete/:id", HighCrestController.RemoveEvent);
+router.post("/HighCrest/Purchase", HighCrestPurchase);
+router.get("/HighCrest/Delete/:id", RemoveEvent);
 
-router.get("/Search/HighCrest/AllRooms", HighCrestController.HighCrestAllRooms);
-router.get("/HighCrest/AllRooms", HighCrestController.HighCrestAllRooms);
+router.get("/Search/HighCrest/AllRooms", HighCrestAllRooms);
+router.get("/HighCrest/AllRooms", HighCrestAllRooms);
 
-router.get("/HighCrest/Room", HighCrestController.HighCrestRoom);
+router.get("/HighCrest/Room", HighCrestRoom);
 
-router.get("/HighCrest/Blog", HighCrestController.HighCrestBlog);
-router.get("/HighCrest/Restaurant", HighCrestController.HighCrestRestaurants);
-router.get("/HighCrest/Chefs_Profile", HighCrestController.HighCrestChefsProfiles);
-router.get("/HighCrest/About", HighCrestController.HighCrestAbout);
-router.get("/HighCrest/Events", HighCrestController.HighCrestEvents);
-router.get("/HighCrest/Contact", HighCrestController.HighCrestContacts);
+router.get("/HighCrest/Blog", HighCrestBlog);
+router.get("/HighCrest/Restaurant", HighCrestRestaurants);
+router.get("/HighCrest/Chefs_Profile", HighCrestChefsProfiles);
+router.get("/HighCrest/About", HighCrestAbout);
+router.get("/HighCrest/Events", HighCrestEvents);
+router.get("/HighCrest/Contact", HighCrestContacts);
 
-module.exports = router;
+export default router;

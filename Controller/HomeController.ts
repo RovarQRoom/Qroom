@@ -1,58 +1,22 @@
-const ProfileModels = require("../models/ProfileImageSchema");
+import { UserSignUp } from '../models/UsersSchema';
+import { Request, Response, NextFunction } from 'express';
 
-//User Data
-let user = {};
-
-
-const Webpage = async(req, res) => {
-    user = Object.assign({}, res.locals.user);
-    let Image;
-    if (res.locals.user) {
-        Image = await ProfileModels.ProfileImage.findOne({ email: user._doc.email }).sort({ $natural: -1 }).limit(1);
-    }
-    let today = new Date();
-    today = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
-    res.render("QRoom_Home/Main.ejs", { Image: Image, Today: today });
+export const Webpage = async(req:Request, res:Response) => {
+    res.render("QRoom_Home/Main.ejs");
 }
 
-const Contact = async(req, res) => {
-    user = Object.assign({}, res.locals.user);
-    let Image;
-    if (res.locals.user) {
-        Image = await ProfileModels.ProfileImage.findOne({ email: user._doc.email }).sort({ $natural: -1 }).limit(1);
-    }
-
-    res.render("QRoom_Home/Contact.ejs", { Image: Image });
+export const Contact = async(req:Request, res:Response) => {
+    res.render("QRoom_Home/Contact.ejs");
 }
 
-const Reviews = async(req, res) => {
-    user = Object.assign({}, res.locals.user);
-    let Image;
-    if (res.locals.user) {
-        Image = await ProfileModels.ProfileImage.findOne({ email: user._doc.email }).sort({ $natural: -1 }).limit(1);
-    }
-
-    res.render("QRoom_Home/Reviews.ejs", { Image: Image });
+export const Reviews = async(req:Request, res:Response) => {
+    res.render("QRoom_Home/Reviews.ejs");
 }
 
-const About = async(req, res) => {
-    user = Object.assign({}, res.locals.user);
-    let Image;
-    if (res.locals.user) {
-        Image = await ProfileModels.ProfileImage.findOne({ email: user._doc.email }).sort({ $natural: -1 }).limit(1);
-    }
-
-    res.render("QRoom_Home/About.ejs", { Image: Image });
+export const About = async(req:Request, res:Response) => {
+    res.render("QRoom_Home/About.ejs");
 }
 
-const Map = async(req, res) => {
+export const Map = async(req:Request, res:Response) => {
     res.render("QRoom_Home/mapBox.ejs");
-}
-
-module.exports = {
-    Webpage,
-    Reviews,
-    About,
-    Contact,
-    Map
 }

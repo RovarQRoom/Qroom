@@ -1,10 +1,12 @@
-const express = require("express");
+import express from "express";
+import {Search, SearchResult, SearchResultMain}  from "../Controller/SearchController";
+import {checkUser}  from "../Middleware/authMiddleware";
+
 const router = express.Router();
-const SearchController = require("../Controller/SearchController");
-const {checkUser} = require("../Middleware/authMiddleware");
 
-router.get("/Search",SearchController.Search);
-router.post("/Search", checkUser ,SearchController.SearchResult);
-router.post("/SearchMain", checkUser ,SearchController.SearchResultMain);
 
-module.exports = router;
+router.get("/Search",Search);
+router.post("/Search", checkUser ,SearchResult);
+router.post("/SearchMain", checkUser ,SearchResultMain);
+
+export default router;
