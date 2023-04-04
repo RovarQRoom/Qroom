@@ -1,15 +1,16 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const { checkUser } = require("./Middleware/authMiddleware");
 const { requireAuth } = require("./Middleware/authMiddleware");
 const { graphqlHTTP } = require('express-graphql');
+const { mongo_connection } = require("./Mongo_Connection");
+
 let user = {};
+require('dotenv').config()
+
 
 
 const server = express();
-const port = 3000;
-const dbURL = "mongodb+srv://QRoom:900mylife@qroom.zlbunot.mongodb.net/QRoom";
 
 //Middleware
 server.use(express.static('public'));
@@ -40,12 +41,7 @@ server.use("/graphql", graphqlHTTP({
 //View Engine
 server.set("view engine", "ejs");
 
-//Listing To The Ports
-mongoose.connect(dbURL)
-    .then((result) => server.listen(port), console.log("Connected to Database QRoom"))
-    .catch((err) => {
-        console.log(err);
-    });
+mongo_connection(process.env.MONGO_URL, process.env.PORT);
 
 //Links Routes
 const HomeRoutes = require("./Routes/HomeRoutes");
@@ -56,10 +52,12 @@ const HighCrestRoutes = require("./Routes/HighCrestRoutes");
 
 
 
+
 //All Routes
 server.get("*", checkUser);
 //First Route
 server.get("/", async(req, res) => {
+    console.log(process.env)
     res.redirect("/Home");
 });
 
