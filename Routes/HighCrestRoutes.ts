@@ -24,4 +24,4 @@ router.get("/HighCrest/About", HighCrestAbout);
 router.get("/HighCrest/Events", HighCrestEvents);
 router.get("/HighCrest/Contact", HighCrestContacts);
 
-export default router;
+export {router as HighCrestRoutes};

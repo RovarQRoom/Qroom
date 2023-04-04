@@ -10,4 +10,4 @@ router.post("/Login", Login_Post);
 
 router.get("/Logout", Logout_Get);
 
-export default router;
+export {router as UserRoutes};

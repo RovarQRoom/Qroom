@@ -1,5 +1,5 @@
 //Mongodb User Model
-import { UserSignUp } from "../models/UsersSchema";
+import { UserSignUp } from "../models";
 
 //Cookie Handlers
 import jwt from 'jsonwebtoken';

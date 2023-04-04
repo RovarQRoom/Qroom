@@ -1,4 +1,4 @@
-import { UserSignUp } from '../models/UsersSchema';
+import { UserSignUp } from '../models';
 import { Request, Response, NextFunction } from 'express';
 
 export const Webpage = async(req:Request, res:Response) => {

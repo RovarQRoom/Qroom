@@ -11,6 +11,6 @@ router.get("/Profile/:id",requireAuth,Profile);
 router.post("/Profile/:id",ProfileDataUpdate);
 
 router.get("/Profile/:id/Picture",requireAuth, PictureWebpage);
-router.post("/Profile/:id/Picture",store.array("ProfileImage",1),ProfilePictureUpdate);
+router.post("/Profile/:id/Picture",ProfilePictureUpdate);
 
-export default router;
+export {router as ProfileRoutes};

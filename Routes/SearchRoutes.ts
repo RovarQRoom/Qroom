@@ -9,4 +9,4 @@ router.get("/Search",Search);
 router.post("/Search", checkUser ,SearchResult);
 router.post("/SearchMain", checkUser ,SearchResultMain);
 
-export default router;
+export {router as SearchRoutes};

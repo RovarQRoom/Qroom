@@ -1,7 +1,7 @@
-import {Hotels} from "../models/HotelsSchema";
-import {Event} from "../models/EventsSchema";
-import { UserSignUp } from "../models/UsersSchema";
-import { Booking } from "../models/BookingSchema";
+import {Hotels} from "../models";
+import {Event} from "../models";
+import { UserSignUp } from "../models";
+import { Booking } from "../models";
 import { Request, Response, NextFunction } from 'express';
 
 

@@ -8,4 +8,4 @@ router.get("/Reviews", Reviews);
 router.get("/Contact", Contact);
 router.get("/Map", Map);
 
-export default router;
+export {router as HomeRoutes};

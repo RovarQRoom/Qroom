@@ -1,4 +1,4 @@
-import { UserSignUp } from "../models/UsersSchema";
+import { UserSignUp } from "../models";
 import bcrypt from "bcrypt";
 import { Request, Response, NextFunction } from 'express';
 
