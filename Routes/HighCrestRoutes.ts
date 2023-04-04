@@ -1,6 +1,8 @@
-const express = require("express");
+import express from "express";
+import { HighCrestController } from "../Controller/HighCrestController";
+
+
 const router = express.Router();
-const HighCrestController = require("../Controller/HighCrestController");
 
 router.get("/Search/HighCrest/Home", HighCrestController.HighCrestHome);
 router.get("/Search/HighCrest", HighCrestController.HighCrestHome);

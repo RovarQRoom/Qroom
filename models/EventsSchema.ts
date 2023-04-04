@@ -1,5 +1,14 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+import mongoose, { Schema, Document, Model} from "mongoose";
+
+export interface IEvent extends Document{
+    title: string;
+    roomType: string;
+    description: string;
+    price: number;
+    checkInDate: Date;
+    checkOutDate: Date;
+    creator: Schema.Types.ObjectId;
+}
 
 const eventSchema = new Schema({
     title: {
@@ -32,4 +41,4 @@ const eventSchema = new Schema({
     }]
 });
 
-module.exports = mongoose.model("Event", eventSchema);
+export const Event = mongoose.model<IEvent>("Event", eventSchema);

@@ -1,8 +1,21 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
+import mongoose, { Schema, Document, Model} from "mongoose";
+import bcrypt from "bcrypt";
+import {isEmail} from "class-validator";
 
-const {isEmail} = require("validator");
+export interface IUser extends Document{
+    name:string;
+    email:string;
+    password:string;
+    phoneNumber:string;
+    balance:number;
+    dateOfBirth:Date;
+    createdEvent:Schema.Types.ObjectId;
+}
+
+export interface IUserSignIn extends Document{
+    email:string;
+    date:Date;
+}
 
 const UserSignUpSchema = new Schema({
     name:{
@@ -40,6 +53,12 @@ const UserSignUpSchema = new Schema({
     ]
 },{timestamps:true});
 
+const UserSignInSchema = new Schema({
+    email:String,
+    date:Date,
+});
+
+
 //Fire a Function Before Doc is Saved
 UserSignUpSchema.pre('save',async function (next){
     const salt = await bcrypt.genSalt();
@@ -59,16 +78,6 @@ UserSignUpSchema.statics.Login = async function(email,password){
 
 }
 
-const UserSignInSchema = new Schema({
-    email:String,
-    date:Date,
-});
 
-const UserSignUp = mongoose.model("UsersSignedUp",UserSignUpSchema);
-const UserSignIn = mongoose.model("SignIn",UserSignInSchema);
-
-
-module.exports = {
-    UserSignUp,
-    UserSignIn
-};
+export const UserSignUp = mongoose.model<IUser>("UsersSignedUp",UserSignUpSchema);
+export const UserSignIn = mongoose.model<IUserSignIn>("SignIn",UserSignInSchema);

@@ -1,5 +1,14 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose, { Schema, Document, Model} from "mongoose";
+
+export interface IRooms extends Document{
+    _id:string;
+    Price:number;
+    Availability:boolean;
+    Admin_ID:string;
+    Room_Number:number;
+    Room_Service:string;
+    Type_of_Room:string;
+}
 
 const Rooms= new Schema({
     _id:{
@@ -28,10 +37,5 @@ const Rooms= new Schema({
     
 });
 
-const RamadaRoomModels = mongoose.model("ramada_rooms",Rooms);
-const HighcrestRoomModels = mongoose.model("highcrest_rooms",Rooms);
-
-module.exports = {
-    RamadaRoomModels,
-    HighcrestRoomModels
-}
+export const RamadaRoomModels = mongoose.model<IRooms>("ramada_rooms",Rooms);
+export const HighcrestRoomModels = mongoose.model<IRooms>("highcrest_rooms",Rooms);

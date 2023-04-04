@@ -4,8 +4,9 @@ import { checkUser } from "./Middleware/authMiddleware";
 import { requireAuth } from "./Middleware/authMiddleware";
 import { graphqlHTTP } from 'express-graphql';
 import { mongo_connection } from "./Mongo_Connection";
+import * as dotenv from 'dotenv'
 
-require('dotenv').config()
+dotenv.config();
 
 
 

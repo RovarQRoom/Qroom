@@ -1,9 +1,13 @@
-const jwt = require('jsonwebtoken');
-const UserModels = require("../models/UsersSchema");
+import jwt from 'jsonwebtoken';
+import { UserSignUp } from "../models/UsersSchema";
+import { Request, Response, NextFunction } from 'express';
+import * as dotenv from 'dotenv'
 
-const requireAuth = (req,res,next)=>{
+dotenv.config();
+
+export const requireAuth = (req:Request, res:Response, next:NextFunction)=>{
     const token = req.cookies.jwt;
-
+    
     //Check if Token Exist And Verified
     if(token){
         jwt.verify(token,'rovar hanaw avan yassin',(err,decodedToken)=>{
@@ -21,7 +25,7 @@ const requireAuth = (req,res,next)=>{
 }
 
 //Check Current User
-const checkUser =  (req,res,next)=>{
+export const checkUser =  (req:Request, res:Response, next:NextFunction)=>{
     const token = req.cookies.jwt;
     //Check if Token Exist And Verified
     if(token){
@@ -33,7 +37,7 @@ const checkUser =  (req,res,next)=>{
                 next();
             }else{
                 console.log(decodedToken);
-                let user = await UserModels.UserSignUp.findById(decodedToken.id);
+                let user = await UserSignUp.findById(decodedToken.id);
                 res.locals.user = user;
                 res.locals.token = token;
                 next();
@@ -48,5 +52,3 @@ const checkUser =  (req,res,next)=>{
         next();
     }
 }
-
-module.exports = {requireAuth,checkUser};

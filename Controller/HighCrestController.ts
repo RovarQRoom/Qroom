@@ -1,6 +1,5 @@
-const ProfileModels = require("../models/ProfileImageSchema");
-const HotelModels = require("../models/HotelsSchema");
-const EventsModels = require("../models/EventsSchema");
+import {Hotels} from "../models/HotelsSchema";
+import {Events} from "../models/EventsSchema";
 const UsersModel = require("../models/UsersSchema");
 const BookingModels = require("../models/BookingSchema");
 const RoomModels = require("../models/room_models");
@@ -8,19 +7,10 @@ const RoomModels = require("../models/room_models");
 const mongoose = require("mongoose");
 const HotelsDB = mongoose.createConnection("mongodb+srv://QRoom:900mylife@qroom.zlbunot.mongodb.net/Hotels");
 
-let RoomsData = HotelsDB.model("highcrest_rooms", mongoose.Schema({
-    _id: { type: String },
-    Price: { type: Number },
-    Availability: { type: Boolean },
-    Admin_ID: { type: String },
-    Room_Number: { type: Number },
-    Room_Service: { type: String, required: [true, "Please Enter a Room Service"] },
-    Type_of_Room: { type: String, required: [true, "Please Enter a Type for The Room"] }
-}));
 
-async function getAvailablesRooms() {
-    return RoomsData.find({ Availability: true }).count();
-}
+// async function getAvailablesRooms() {
+//     return RoomsData.find({ Availability: true }).count();
+// }
 
 //User Data
 let user = {};
