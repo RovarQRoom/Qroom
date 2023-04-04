@@ -17,11 +17,11 @@
     <img src="https://images.pexels.com/photos/3826666/pexels-photo-3826666.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-singup">
     <div class="wrapper">
         <header>Sign Up Form</header>
-        <form action="/Signup">
+        <form action="/Signup" method="post">
             <div class="name error"></div>
             <div class="field name">
                 <div class="input-area">
-                    <input id="in-name" type="text" placeholder="Your Name" name="NameReg">
+                    <input id="in-name" type="text" placeholder="Your Name" name="name">
                     <i class="icon fas fa-user"></i>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="email error"></div>
             <div class="field email">
                 <div class="input-area">
-                    <input type="email" id="email in-email" placeholder="Your Email" name="EmailReg">
+                    <input type="email" id="email in-email" placeholder="Your Email" name="email">
                     <i class="icon fas fa-mail-bulk"></i>
                 </div>
             </div>
@@ -37,23 +37,23 @@
             <div class="password error"></div>
             <div class="field password">
                 <div class="input-area">
-                    <input type="password" placeholder="Password" name="PasswordReg">
+                    <input type="password" placeholder="Password" name="password">
                     <i class="icon fas fa-lock"></i>
                 </div>
             </div>
 
-            <div class="confirmpass error"></div>
+            <!-- <div class="confirmpass error"></div>
             <div class="field password">
                 <div class="input-area">
-                    <input type="password" placeholder="Confirm Password" name="ConfirmReg">
+                    <input type="password" placeholder="Confirm Password" name="password">
                     <i class="icon fas fa-unlock"></i>
                 </div>
-            </div>
+            </div> -->
 
             <div class="phone error"></div>
             <div class="field phone">
                 <div class="input-area">
-                    <input type="text" id="in-Phone" placeholder="Enter Your Phone" name="PhonenumberReg" value="07">
+                    <input type="text" id="in-Phone" placeholder="Enter Your Phone" name="phoneNumber" value="07">
                     <i class="icon fas fa-phone-alt"></i>
                     <select id="country" style="display: none;">
                         <option value="IQ">&#x1F1EE;&#x1F1F6; Iraq</option>
@@ -65,14 +65,15 @@
             <div class="field birthday">
                 <div class="input-area">
                     <i class="error error-icon fas fa-exclamation-circle"></i>
-                    <input type="date" id="in-Birth" placeholder="Enter Your Birthday" name="DateofBirthReg">
+                    <input type="date" id="in-Birth" placeholder="Enter Your Birthday" name="dateOfBirth">
                     <i class="icon fas fa-calendar"></i>
                 </div>
             </div>
             <input type="submit" value="Register">
         </form>
     </div>
-    <script>
+
+    <!-- <script>
         const form = document.querySelector('form');
         const nameError = document.querySelector('.name.error');
         const emailError = document.querySelector('.email.error');
@@ -150,7 +151,7 @@
             cleave.setPhoneRegionCode(this.value);
             cleave.setRawValue('');
         })
-    </script>
+    </script> -->
 </body>
 
 </html>

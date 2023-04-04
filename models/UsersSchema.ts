@@ -10,6 +10,8 @@ export interface IUser extends Document{
     balance:number;
     dateOfBirth:Date;
     createdEvent:Schema.Types.ObjectId;
+    deletedAt:Date;
+    deleted:boolean;
 }
 
 export interface IUserSignIn extends Document{
@@ -17,7 +19,7 @@ export interface IUserSignIn extends Document{
     date:Date;
 }
 
-const UserSignUpSchema = new Schema({
+export const UserSignUpSchema = new Schema({
     name:{
         type:String,
         required:[true,'Please Enter A Name']
@@ -39,7 +41,8 @@ const UserSignUpSchema = new Schema({
         required:[true,'Please Enter A Phone Number']
     },
     balance:{
-        type:Number
+        type:Number,
+        default:0
     },
     dateOfBirth:{
         type:Date,
@@ -48,9 +51,18 @@ const UserSignUpSchema = new Schema({
     createdEvent:[
         {
         type:Schema.Types.ObjectId,
-        ref:'Event'
+        ref:'Event',
+        default:[]
         }
-    ]
+    ],
+    deletedAt:{
+        type:Date,
+        default:null
+    },
+    deleted:{
+        type:Boolean,
+        default:false
+    }
 },{timestamps:true});
 
 const UserSignInSchema = new Schema({
@@ -60,13 +72,13 @@ const UserSignInSchema = new Schema({
 
 
 //Fire a Function Before Doc is Saved
-UserSignUpSchema.pre('save',async function (next){
+// UserSignUpSchema.pre('save',async function (next){
     // const salt = await bcrypt.genSalt();
     // this.password = await bcrypt.hash(this.password,salt);
     // next();
-});
+// });
 
-UserSignUpSchema.statics.Login = async function(email,password){
+// UserSignUpSchema.statics.Login = async function(email,password){
     // const user = await this.findOne({email});
     // if(user){
     //     const auth = await bcrypt.compare(password,user.password);
@@ -76,7 +88,7 @@ UserSignUpSchema.statics.Login = async function(email,password){
 
     // }throw Error("Incorrect Email");
 
-}
+// }
 
 
 export const UserSignUp = mongoose.model<IUser>("UsersSignedUp",UserSignUpSchema);
