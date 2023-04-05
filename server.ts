@@ -14,6 +14,7 @@ server.use(express.static('public'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
+server.use('/uploads', express.static('uploads'));
 
 server.use(verifyTokenMiddleware);
 

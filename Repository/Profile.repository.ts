@@ -25,7 +25,7 @@ export class ProfileRepository {
 
 
   async updatePicture(id: string, pictureFile: string): Promise<Document | null> {
-    if(this.mongoDbExceptions.isAValidObjectId(id)){
+    if(!this.mongoDbExceptions.isAValidObjectId(id)){
       throw new Error('Invalid Id');
     } 
 

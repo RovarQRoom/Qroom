@@ -33,7 +33,6 @@ export const ProfilePictureUpdate = async(req:Request, res:Response, next:NextFu
 
             profileService.updateUserPicture(id, filePath? filePath : "").then((result)=>{
                 console.log('Profile picture updated successfully');
-                res.redirect(`/Profile/${id}`);
             }).catch((err)=>{
                 console.log(err);
             })

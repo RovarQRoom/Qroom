@@ -18,10 +18,16 @@
     <center>
         <div class="box">
             <form action="/Profile/<%= user._id %>" method="post">
+                <% if(user.picture!=undefined){ %>
+                    <img src="../../<%= user.picture %>" alt="profilePicture" id="image">
+                    <label for="file"><a style="font-weight: bold;text-decoration: none; color: aliceblue;"
+                        href="/Profile/<%= user._id %> /Picture">Edit Picture</a></label>
+                    </image>
+                    <% }else{ %>
                         <img src="../../All Images/Profile_Images/user.png" alt="ProfilePicture"></image>
-                            <!-- <input type="file" name="ProfileImage" id="file" accept="image/*"> -->
                             <label for="file"><a style="font-weight: bold;text-decoration: none; color: aliceblue;"
                                     href="/Profile/<%= user._id %> /Picture">Edit Picture</a></label>
+                                    <% } %>
 
                             <input type="text" name="name" placeholder="Your Name" value="<%=user.name%> ">
 

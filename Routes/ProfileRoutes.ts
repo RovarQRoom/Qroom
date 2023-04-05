@@ -4,9 +4,6 @@ import { verifyTokenMiddleware } from "../Middleware";
 
 const router = express.Router();
 
-//Middleware
-const store = require("../Middleware/multer");
-
 router.get("/Profile/:id", verifyTokenMiddleware ,Profile);
 router.post("/Profile/:id",ProfileDataUpdate);
 

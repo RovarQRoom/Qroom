@@ -16,12 +16,12 @@
     <form action="/Profile/<%= user._id  %>/Picture" method="post" enctype="multipart/form-data">
         <div class="profile-pic-div">
             <% if(user.picture!=undefined){ %>
-                <img src="data:<%=user.picture.contentType%>;base64,<%=user.picture.imageBase64 %>" alt="ProfilePicture" id="image">
+                <img src="../../<%= user.picture %>" alt="profilePicture" id="image">
                 </image>
                 <% }else{ %>
-                    <img src="../../../All Images/Profile_Images/user.png" alt="ProfilePicture" id="image"></image>
+                    <img src="uploads/1680692137425-Spongbob.jpg" alt="ProfilePicture" id="image"></image>
                     <% } %>
-                        <input type="file" name="ProfileImage" id="file" accept="image/*">
+                        <input type="file" name="profileImage" id="file" accept="image/*">
                         <label for="file" id="uploadBtn">Choose Photo</label>
         </div>
         <button>Update</button>
