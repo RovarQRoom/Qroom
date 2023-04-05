@@ -33,6 +33,9 @@ export class UserRepository {
   }
 
   async create(createUserDto: CreateUserDto): Promise<Document> {
+    if(await this.mongoDbExceptions.isEmailDuplicate((createUserDto.email).toString())){
+      throw new Error('Email Already Exists');
+    }
     const user = new this.userModel(createUserDto);
 
     if (!user) throw new Error('User Cant Be Created');
