@@ -7,8 +7,10 @@ import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import { CreateUserDto } from "../Dtos";
 import { UserRepository } from "../Repository";
+import { UserService } from "../Service";
 
 const userRepository = new UserRepository();
+const userService = new UserService(userRepository);
 
 const handleErrors = (err:any)=>{
     // console.log(err.message,err.code);
@@ -59,14 +61,14 @@ export const Logout_Get = (req:Request,res:Response)=>{
 }
 
 export const Signup_Post = async (req:Request,res:Response)=>{
-    const createUser = <CreateUserDto>req.body;
-    try{
-        const user = await userRepository.create(createUser);
-        res.status(201).json(user);
-    }catch(err){
-        const errors = handleErrors(err);
-        res.status(400).json({errors});
-    }
+    const createUserDto = <CreateUserDto>req.body;
+
+  try {
+    await userService.createUser(createUserDto);
+    res.status(201).json(createUserDto);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
 }
 
 export const Login_Post = async (req:Request,res:Response)=>{

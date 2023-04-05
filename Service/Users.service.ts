@@ -1,0 +1,56 @@
+import { UserRepository } from '../Repository/';
+import { CreateUserDto, UpdateUserDto, DeleteUserDto } from '../Dtos/UsersDto';
+import { Document } from 'mongoose';
+
+export class UserService {
+  private userRepository: UserRepository;
+
+  constructor(userRepository: UserRepository) {
+    this.userRepository = userRepository;
+  }
+
+  async getUserById(id: string): Promise<Document | null> {
+    try {
+      const user = await this.userRepository.findById(id);
+      return user;
+    } catch (error) {
+      throw new Error(`Failed to get user with id ${id}: ${error}`);
+    }
+  }
+
+  async getUserByEmail(email: string): Promise<Document | null> {
+    try {
+      const user = await this.userRepository.findByEmail(email);
+      return user;
+    } catch (error) {
+      throw new Error(`Failed to get user with email ${email}: ${error}`);
+    }
+  }
+
+  async createUser(createUserDto: CreateUserDto): Promise<Document> {
+    try {
+      const user = await this.userRepository.create(createUserDto);
+      return user;
+    } catch (error) {
+      throw new Error(`Failed to create user: ${error}`);
+    }
+  }
+
+  async updateUser(id: string, updateUserDto: UpdateUserDto): Promise<Document | null> {
+    try {
+      const user = await this.userRepository.update(id, updateUserDto);
+      return user;
+    } catch (error) {
+      throw new Error(`Failed to update user with id ${id}: ${error}`);
+    }
+  }
+
+  async deleteUser(id: string, deleteUserDto: DeleteUserDto): Promise<Document | null> {
+    try {
+      const user = await this.userRepository.delete(id, deleteUserDto);
+      return user;
+    } catch (error) {
+      throw new Error(`Failed to delete user with id ${id}: ${error}`);
+    }
+  }
+}
