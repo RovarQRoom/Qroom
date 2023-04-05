@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
 import express, {Request, Response, NextFunction} from "express";
-import { checkUser } from "./Middleware/authMiddleware";
-import { requireAuth } from "./Middleware/authMiddleware";
 import { HighCrestRoutes, HomeRoutes, ProfileRoutes, SearchRoutes, UserRoutes } from "./Routes";
 import * as dotenv from 'dotenv'
+import { verifyTokenMiddleware } from './Middleware/authMiddleware';
 
 
 dotenv.config();
@@ -16,7 +15,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
 
-// server.use(checkUser);
+server.use(verifyTokenMiddleware);
 
 //View Engine
 server.set("view engine", "ejs");
@@ -32,11 +31,10 @@ mongoose.connect(process.env.MONGODB_URI?process.env.MONGODB_URI:"")
     });
 
 //All Routes
-// server.get("*", checkUser);
+server.get("*", verifyTokenMiddleware);
 
 //First Route
 server.get("/", (req:Request, res:Response) => {
-    // console.log(process.env)
     res.redirect("/Home");
 });
 

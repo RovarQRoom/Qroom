@@ -15,8 +15,8 @@
     <h1><a href="/Profile/<%= user._id %>"><i class="fa-solid fa-arrow-left"></i></a></h1>
     <form action="/Profile/<%= user._id  %>/Picture" method="post" enctype="multipart/form-data">
         <div class="profile-pic-div">
-            <% if(Image!=undefined){ %>
-                <img src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" alt="ProfilePicture" id="image">
+            <% if(user.picture!=undefined){ %>
+                <img src="data:<%=user.picture.contentType%>;base64,<%=user.picture.imageBase64 %>" alt="ProfilePicture" id="image">
                 </image>
                 <% }else{ %>
                     <img src="../../../All Images/Profile_Images/user.png" alt="ProfilePicture" id="image"></image>

@@ -18,11 +18,7 @@
     <center>
         <div class="box">
             <form action="/Profile/<%= user._id %>" method="post">
-                <% if(Image!=undefined){ %>
-                    <img src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %>" alt="ProfilePicture"></image>
-                    <% }else{ %>
                         <img src="../../All Images/Profile_Images/user.png" alt="ProfilePicture"></image>
-                        <% } %>
                             <!-- <input type="file" name="ProfileImage" id="file" accept="image/*"> -->
                             <label for="file"><a style="font-weight: bold;text-decoration: none; color: aliceblue;"
                                     href="/Profile/<%= user._id %> /Picture">Edit Picture</a></label>

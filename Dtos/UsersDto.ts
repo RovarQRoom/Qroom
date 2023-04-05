@@ -18,3 +18,7 @@ export interface DeleteUserDto {
     deletedAt: Date;
     deleted:boolean;
 }
+
+export interface PictureUpdateUserDto {
+    picture: String;
+}

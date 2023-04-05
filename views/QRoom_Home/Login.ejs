@@ -15,11 +15,11 @@
     <img src="https://images.pexels.com/photos/3826666/pexels-photo-3826666.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-singup">
     <div class="wrapper">
         <header>Login Form</header>
-        <form action="/Login">
+        <form action="/Login" method="post">
             <div class="email error" style="color: red;"></div>
             <div class="field email">
                 <div class="input-area">
-                    <input type="text" placeholder="Email Address" name="EmailSign">
+                    <input type="text" placeholder="Email Address" name="email">
                     <i class="icon fas fa-envelope"></i>
                     <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
@@ -28,7 +28,7 @@
             <div class="password error" style="color: red;"></div>
             <div class="field password">
                 <div class="input-area">
-                    <input type="password" placeholder="Password" name="PasswordSign">
+                    <input type="password" placeholder="Password" name="password">
                     <i class="icon fas fa-lock"></i>
                     <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
@@ -44,52 +44,6 @@
         </div>
         <div></div>
     </div>
-
-    <script>
-        const form = document.querySelector('form');
-
-        const emailError = document.querySelector('.email.error');
-        const passwordError = document.querySelector('.password.error');
-
-        form.addEventListener('submit', async(e) => {
-            e.preventDefault();
-
-            // Reset Errors
-            emailError.textContent = '';
-            passwordError.textContent = '';
-
-            //Get Values 
-            const email = form.EmailSign.value;
-            const password = form.PasswordSign.value;
-
-            const datafiles = {
-                email,
-                password
-            };
-
-            try {
-                const res = await fetch('/Login', {
-                    method: 'POST',
-                    body: JSON.stringify(datafiles),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                const data = await res.json();
-                console.log(data);
-
-                if (data.errors) {
-                    emailError.textContent = data.errors.email;
-                    passwordError.textContent = data.errors.password;
-                } else if (data.user) {
-                    location.assign("/Home");
-                }
-            } catch (err) {
-                console.log(err);
-            }
-
-        })
-    </script>
 
 </body>
 

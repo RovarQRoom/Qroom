@@ -2,7 +2,7 @@ import { Model, Document, ObjectId } from 'mongoose';
 import { UserSignUp, IUser } from '../models';
 import { CreateUserDto, UpdateUserDto, DeleteUserDto } from '../Dtos/UsersDto';
 import { MongoDbExceptions } from '../ExceptionHandling';
-
+import bcrypt from 'bcrypt';
 export class UserRepository {
   private userModel: Model<IUser>;
   private mongoDbExceptions: MongoDbExceptions;
@@ -34,8 +34,12 @@ export class UserRepository {
 
   async create(createUserDto: CreateUserDto): Promise<Document> {
     if(await this.mongoDbExceptions.isEmailDuplicate((createUserDto.email).toString())){
+      console.log('Email Already Exists');
       throw new Error('Email Already Exists');
     }
+
+    createUserDto.password = await this.hashPassword((createUserDto.password).toString());
+
     const user = new this.userModel(createUserDto);
 
     if (!user) throw new Error('User Cant Be Created');
@@ -72,4 +76,16 @@ export class UserRepository {
 
     return user; 
   }
+
+  async hashPassword(password: string): Promise<any> {
+    const saltRounds = 10;
+    const passwordHash = await bcrypt.hashSync(password, saltRounds);
+    return passwordHash;
+  }
+
+  async comparePassword(password: string, passwordHash: string): Promise<boolean> {
+    const passwordMatch = await bcrypt.compareSync(password, passwordHash);
+    return passwordMatch;
+  }
+
 }

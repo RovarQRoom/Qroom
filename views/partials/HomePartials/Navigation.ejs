@@ -17,16 +17,25 @@
 
     </div>
 
-    <form action="/Search" class="nav__search-form" method="post">
-        <input type="search" placeholder="search here..." id="search-box" name="term">
-        <label for="search-box" class="fas fa-search"></label>
-    </form>
+    <% if(user==null){ %>
         <form action="" class="login-form">
             <h3>Login form</h3>
             <a href="/Login" class="nav__btn">Login Now</a>
             <h3>Register form</h3>
             <a href="/Signup" class="nav__btn">Register Now</a>
         </form>
+        <% }else{ %>
+            <form action="" class="login-form">
+                <h3>Welcome,
+                    <%=user.name %>
+                </h3>
+                <a href="/Profile/<%= user._id %>" class="nav__btn">Profile</a>
+                <h3>Balance:
+                    <%=user.balance%>$
+                </h3>
+                <a href="/Logout" class="nav__btn">Logout</a>
+            </form>
+            <% } %>
 </div>
 
 <!-- <div class="max-width">

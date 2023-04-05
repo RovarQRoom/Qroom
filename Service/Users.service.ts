@@ -18,6 +18,20 @@ export class UserService {
     }
   }
 
+  async UserLoggin(email: string, password: string): Promise<Document | null> {
+    try {
+      const user = await this.userRepository.findByEmail(email);
+      if(await this.userRepository.comparePassword(password, user?.get('password'))){
+        console.log('Password Matched');
+        return user;
+      }
+      console.log('Password Not Matched');
+      return null;
+    } catch (error) {
+      throw new Error(`Failed to get user with email ${email}: ${error}`);
+    }
+  }
+
   async getUserByEmail(email: string): Promise<Document | null> {
     try {
       const user = await this.userRepository.findByEmail(email);

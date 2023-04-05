@@ -9,6 +9,7 @@ export interface IUser extends Document{
     phoneNumber:string;
     balance:number;
     dateOfBirth:Date;
+    picture:string;
     createdEvent:Schema.Types.ObjectId;
     deletedAt:Date;
     deleted:boolean;
@@ -47,6 +48,10 @@ export const UserSignUpSchema = new Schema({
     dateOfBirth:{
         type:Date,
         required:[true,'Please Enter A Valid Birthday']
+    },
+    picture:{
+        type:String,
+        default:"https://res.cloudinary.com/dzqkqzjxw/image/upload/v1600000000/Default%20Profile%20Picture/DefaultProfilePicture.png"
     },
     createdEvent:[
         {
