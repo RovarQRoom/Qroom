@@ -1,3 +1,4 @@
+import { Document } from "mongoose";
 import { ISearchService } from "../Interface/service-interface";
 import { SearchRepository } from "../Repository";
 

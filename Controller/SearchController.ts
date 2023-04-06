@@ -1,5 +1,3 @@
-import mongoose  from "mongoose";
-import { Hotels } from '../models';
 import { Request, Response, NextFunction } from 'express';
 
 

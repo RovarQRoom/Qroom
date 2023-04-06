@@ -1,12 +1,13 @@
-import { Model } from "mongoose";
+import { Document, Model } from "mongoose";
 import { ISearchRepository } from "../Interface/repository-interface";
+import { Hotels, IHotels } from "../models";
 
 
 export class SearchRepository implements ISearchRepository {
-  private searchModel: Model<Document>;
+  private searchModel: Model<IHotels>;
 
-  constructor(searchModel: Model<Document>) {
-    this.searchModel = searchModel;
+  constructor() {
+    this.searchModel = Hotels;
   }
 
   async find(search: string): Promise<Document[]> {
