@@ -2,6 +2,7 @@ export interface CreateUserDto {
   name: String;
   email: String;
   password: String;
+  confirmPassword: String;
   phoneNumber: String;
   dateOfBirth: Date;
 }
@@ -9,7 +10,9 @@ export interface CreateUserDto {
 export interface UpdateUserDto {
     name: String;
     email: String;
-    password: String;
+    currentPassword: String;
+    newPassword: String;
+    confirmPassword: String;
     phoneNumber: String;
     balance: Number;
   }

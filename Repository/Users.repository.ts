@@ -39,6 +39,10 @@ export class UserRepository {
     }
 
     createUserDto.password = await this.hashPassword((createUserDto.password).toString());
+    if(!await this.comparePassword((createUserDto.password).toString(),(createUserDto.confirmPassword).toString())){
+      console.log('Password And Confirm Password Not Matched');
+      throw new Error('Password And Confirm Password Not Matched');
+    }
 
     const user = new this.userModel(createUserDto);
 
@@ -50,7 +54,25 @@ export class UserRepository {
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<Document | null> {
-    if(this.mongoDbExceptions.isAValidObjectId(id)){
+
+    const oldUser = await this.findById(id);
+    if(!await this.comparePassword((updateUserDto.currentPassword).toString(),oldUser?.get('password'))){
+      console.log('Password Not Matched');
+      throw new Error('Password Not Matched');
+    }
+
+    if(updateUserDto.newPassword == null){
+      console.log('New Password Cant Be Null');
+      throw new Error('New Password Cant Be Null');
+    }
+
+    updateUserDto.newPassword = await this.hashPassword((updateUserDto.newPassword).toString());
+    if(!await this.comparePassword((updateUserDto.newPassword).toString(),(updateUserDto.confirmPassword).toString())){
+      console.log('New Password And Confirm Password Not Matched');
+      throw new Error('New Password And Confirm Password Not Matched');
+    }
+
+    if(!this.mongoDbExceptions.isAValidObjectId(id)){
       throw new Error('Invalid Id');
     } 
 

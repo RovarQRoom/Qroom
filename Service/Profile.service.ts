@@ -1,8 +1,8 @@
+import { ProfileServiceInterface } from '../Interface';
 import { ProfileRepository } from '../Repository/';
-import { PictureUpdateUserDto } from '../Dtos/UsersDto';
 import { Document } from 'mongoose';
 
-export class ProfileService {
+export class ProfileService implements ProfileServiceInterface {
   private profileRepository: ProfileRepository;
 
   constructor(profileRepository: ProfileRepository) {
