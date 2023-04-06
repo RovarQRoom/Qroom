@@ -1,1 +1,2 @@
-export * from "./UsersDto";
+export * from "./Users.dto";
+export * from "./Contact.dto";

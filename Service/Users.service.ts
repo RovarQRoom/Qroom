@@ -1,5 +1,5 @@
 import { UserRepository } from '../Repository/';
-import { CreateUserDto, UpdateUserDto, DeleteUserDto } from '../Dtos/UsersDto';
+import { CreateUserDto, UpdateUserDto, DeleteUserDto } from '../Dtos/Users.dto';
 import { Document } from 'mongoose';
 
 export class UserService {

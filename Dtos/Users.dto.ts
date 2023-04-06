@@ -10,7 +10,7 @@ export interface CreateUserDto {
 export interface UpdateUserDto {
     name: String;
     email: String;
-    currentPassword: String;
+    password: String;
     newPassword: String;
     confirmPassword: String;
     phoneNumber: String;

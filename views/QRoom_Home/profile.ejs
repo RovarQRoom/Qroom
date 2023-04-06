@@ -18,16 +18,16 @@
     <center>
         <div class="box">
             <form action="/Profile/<%= user._id %>" method="post">
-                <% if(user.picture!=undefined){ %>
+                <% if(user!=null){ %>
+                    <% if(user.picture){ %>
                     <img src="../../<%= user.picture %>" alt="profilePicture" id="image">
+                    <% }else{ %>
+                        <img src="../../All Images/Profile_Images/user.png" alt="profilePicture" id="image">
+                    <% } %>
                     <label for="file"><a style="font-weight: bold;text-decoration: none; color: aliceblue;"
                         href="/Profile/<%= user._id %> /Picture">Edit Picture</a></label>
                     </image>
-                    <% }else{ %>
-                        <img src="../../All Images/Profile_Images/user.png" alt="ProfilePicture"></image>
-                            <label for="file"><a style="font-weight: bold;text-decoration: none; color: aliceblue;"
-                                    href="/Profile/<%= user._id %> /Picture">Edit Picture</a></label>
-                                    <% } %>
+                    <% } %>
 
                             <input type="text" name="name" placeholder="Your Name" value="<%=user.name%> ">
 
@@ -38,11 +38,11 @@
                                 <option value="IQ">&#x1F1EE;&#x1F1F6; Iraq</option>
                             </select>
 
-                            <input type="password" name="currentPass" placeholder="Current Password">
+                            <input type="password" name="password" placeholder="Current Password">
 
-                            <input type="password" name="newPass" placeholder="New Password">
+                            <input type="password" name="newPassword" placeholder="New Password">
 
-                            <input type="password" name="confirmPass" placeholder="Confirm Password">
+                            <input type="password" name="confirmPassword" placeholder="Confirm Password">
                             <!-- <button style="float: left;margin: 10px 0 0 18.2%;">Cancel</button> -->
                             <button style="display: flex;justify-content: center;align-items: center;margin-top:30px ;">Update</button>
             </form>

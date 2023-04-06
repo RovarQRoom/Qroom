@@ -1,6 +1,6 @@
 import { Model, Document, ObjectId } from 'mongoose';
 import { UserSignUp, IUser } from '../models';
-import { CreateUserDto, UpdateUserDto, DeleteUserDto } from '../Dtos/UsersDto';
+import { CreateUserDto, UpdateUserDto, DeleteUserDto } from '../Dtos/Users.dto';
 import { MongoDbExceptions } from '../ExceptionHandling';
 import bcrypt from 'bcrypt';
 export class UserRepository {
@@ -13,7 +13,8 @@ export class UserRepository {
   }
 
   async findById(id: string): Promise<Document | null> {
-    if(this.mongoDbExceptions.isAValidObjectId(id)){
+    if(!this.mongoDbExceptions.isAValidObjectId(id)){
+      console.log('Invalid Id');
       throw new Error('Invalid Id');
     } 
 
@@ -39,7 +40,7 @@ export class UserRepository {
     }
 
     createUserDto.password = await this.hashPassword((createUserDto.password).toString());
-    if(!await this.comparePassword((createUserDto.password).toString(),(createUserDto.confirmPassword).toString())){
+    if(!await this.comparePassword((createUserDto.confirmPassword).toString(),(createUserDto.password).toString())){
       console.log('Password And Confirm Password Not Matched');
       throw new Error('Password And Confirm Password Not Matched');
     }
@@ -56,7 +57,7 @@ export class UserRepository {
   async update(id: string, updateUserDto: UpdateUserDto): Promise<Document | null> {
 
     const oldUser = await this.findById(id);
-    if(!await this.comparePassword((updateUserDto.currentPassword).toString(),oldUser?.get('password'))){
+    if(!await this.comparePassword((updateUserDto.password).toString(),oldUser?.get('password'))){
       console.log('Password Not Matched');
       throw new Error('Password Not Matched');
     }
@@ -66,13 +67,21 @@ export class UserRepository {
       throw new Error('New Password Cant Be Null');
     }
 
+    if(updateUserDto.newPassword == updateUserDto.password){
+      console.log('New Password And Current Password Are The Same');
+      throw new Error('New Password And Current Password Are The Same');
+    }
+
     updateUserDto.newPassword = await this.hashPassword((updateUserDto.newPassword).toString());
-    if(!await this.comparePassword((updateUserDto.newPassword).toString(),(updateUserDto.confirmPassword).toString())){
+    if(!await this.comparePassword((updateUserDto.confirmPassword).toString(),(updateUserDto.newPassword).toString())){
       console.log('New Password And Confirm Password Not Matched');
       throw new Error('New Password And Confirm Password Not Matched');
     }
 
+    updateUserDto.password = updateUserDto.newPassword;
+
     if(!this.mongoDbExceptions.isAValidObjectId(id)){
+      console.log('Invalid Id');
       throw new Error('Invalid Id');
     } 
 
@@ -80,7 +89,10 @@ export class UserRepository {
       new: true,
     }).exec();
 
-    if (!user) throw new Error('User was not found And Cant Be Updated');
+    if (!user){
+      console.log('User was not found And Cant Be Updated');
+      throw new Error('User was not found And Cant Be Updated');
+    }
 
     return user;
   }

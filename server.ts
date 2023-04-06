@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 import express, {Request, Response, NextFunction} from "express";
 import { HighCrestRoutes, HomeRoutes, ProfileRoutes, SearchRoutes, UserRoutes } from "./Routes";
 import * as dotenv from 'dotenv'
-import { verifyTokenMiddleware } from './Middleware/authMiddleware';
+import { verifyTokenMiddleware } from './Middleware/auth.middleware';
 
 
 dotenv.config();

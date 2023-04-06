@@ -50,8 +50,7 @@ export const UserSignUpSchema = new Schema({
         required:[true,'Please Enter A Valid Birthday']
     },
     picture:{
-        type:String,
-        default:"https://res.cloudinary.com/dzqkqzjxw/image/upload/v1600000000/Default%20Profile%20Picture/DefaultProfilePicture.png"
+        type:String
     },
     createdEvent:[
         {

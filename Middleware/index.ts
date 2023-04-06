@@ -1,2 +1,3 @@
-export * from './authMiddleware';
-export * from './ImageAuthMiddleware';
+export * from './auth.middleware';
+export * from './Image.middleware';
+export * from './contactus.middleware';

@@ -53,7 +53,7 @@ export const verifyTokenMiddleware = (req: Request, res: Response, next: NextFun
                 req.isAuth = false;
                 next();
             }else{
-                console.log(decodedToken);
+                // console.log(decodedToken);
                 let userFind = await UserSignUp.findById(decodedToken.userId);
                 res.locals.user = userFind;
                 res.locals.token = token;

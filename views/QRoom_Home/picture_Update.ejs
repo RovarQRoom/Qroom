@@ -15,11 +15,11 @@
     <h1><a href="/Profile/<%= user._id %>"><i class="fa-solid fa-arrow-left"></i></a></h1>
     <form action="/Profile/<%= user._id  %>/Picture" method="post" enctype="multipart/form-data">
         <div class="profile-pic-div">
-            <% if(user.picture!=undefined){ %>
+            <% if(user.picture){ %>
                 <img src="../../<%= user.picture %>" alt="profilePicture" id="image">
                 </image>
                 <% }else{ %>
-                    <img src="uploads/1680692137425-Spongbob.jpg" alt="ProfilePicture" id="image"></image>
+                    <img src="../../All Images/Profile_Images/user.png" alt="ProfilePicture" id="image"></image>
                     <% } %>
                         <input type="file" name="profileImage" id="file" accept="image/*">
                         <label for="file" id="uploadBtn">Choose Photo</label>

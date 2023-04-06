@@ -54,8 +54,8 @@
                     <div class="phone contact__details">
                         <i class="fas fa-phone-alt"></i>
                         <div class="contact__topic">Phone</div>
-                        <div class="text-one">+0098 9893 5647</div>
-                        <div class="text-two">+0096 3434 5678</div>
+                        <div class="text-one">+964 773 144 0112</div>
+                        <div class="text-two">+964 750 155 4024</div>
                     </div>
                     <div class="email contact__details" style="padding-left: 74px;">
                         <i class="fas fa-envelope"></i>
@@ -67,15 +67,27 @@
                 <div class="right-side">
                     <div class="contact__topic-text">Send us a message</div>
                     <p>If you have any work from me or any types of quries related to my tutorial, you can send me message from here. It's my pleasure to help you.</p>
-                    <form  onsubmit="sendEmail(); reset(); return false" >
+                    <form action="/Contact" method="post" >
+                        <% if(user){ %>
                         <div class="input-box">
-                            <input type="text" placeholder="Enter your name">
+                            <input type="text" placeholder="Enter Your Name" value="<%= user.name %>" name="name">
                         </div>
                         <div class="input-box">
-                            <input type="text" placeholder="Enter your email" id="email">
+                            <input type="text" placeholder="Enter Your Email" id="email" value="<%= user.email %>" name="from">
+                        </div>
+                        <%}else{%>
+                            <div class="input-box">
+                                <input type="text" placeholder="Enter Your Name" name="name">
+                            </div>
+                            <div class="input-box">
+                                <input type="text" placeholder="Enter Your Email" id="email" name="from">
+                            </div>
+                        <%} %>
+                        <div class="input-box">
+                            <input type="text" placeholder="Enter Your Subject" id="email" name="subject">
                         </div>
                         <div class="input-box message-box">
-                            <textarea name="" id="" cols="30" rows="10" placeholder="the message content"></textarea>
+                            <textarea name="text" id="" cols="30" rows="10" placeholder="The Message Content"></textarea>
                         </div>
                         <div class="button">
                             <!-- <input type="button" value="Send Now"> -->
@@ -91,7 +103,7 @@
         <%- include("../partials/HomePartials/Footer.ejs")%>
             <!-- End Footer -->
 
-            <script src="../../javaScript/Main_Scripts/javascript_AC/nav.js"></script>
+            <!-- <script src="../../javaScript/Main_Scripts/javascript_AC/nav.js"></script>
 
             <script src="https://smtpjs.com/v3/smtp.js"></script>
             <script>
@@ -108,7 +120,7 @@
                 message => alert(message)
                 );
                 }
-            </script>
+            </script> -->
 </body>
 
 </html>

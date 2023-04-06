@@ -28,9 +28,9 @@ export const Logout_Get = (req:Request,res:Response)=>{
 }
 
 export const Signup_Post = async (req:Request,res:Response)=>{
-  const CreateUserDto = <CreateUserDto>req.body;
+  const createUserDto = <CreateUserDto>req.body;
   try {
-    const user = await userService.createUser(CreateUserDto);
+    const user = await userService.createUser(createUserDto);
     const token = jwt.sign({ userId: user.id }, secretKey);
     setTokenCookie(res, token);
     console.log("User Created And Logged In");
