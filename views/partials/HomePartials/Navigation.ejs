@@ -25,8 +25,8 @@
 
     </div>
 
-    <form action="/Search" class="nav__search-form" method="post">
-        <input type="search" placeholder="search here..." id="search-box" name="term">
+    <form action="/Search" class="nav__search-form" method="get">
+        <input type="search" placeholder="search here..." id="search-box" name="search">
         <label for="search-box" class="fas fa-search"></label>
     </form>
     <% if(user==null){ %>

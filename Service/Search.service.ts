@@ -10,7 +10,7 @@ export class SearchService implements ISearchService {
     this.searchRepository = searchRepository;
   }
 
-  async getSearchResult(search: string): Promise<Document[]> {
+  async getSearchResult(search: any): Promise<Document[]> {
     try {
       const searchResult = await this.searchRepository.find(search);
       return searchResult;

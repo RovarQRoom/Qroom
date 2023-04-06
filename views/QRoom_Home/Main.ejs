@@ -43,12 +43,12 @@
                 </div>
                 <!-- Start Form For check  -->
                 <div class="book" data-aos="zoom-in-up">
-                    <form class="book-form" method="post" action="/SearchMain">
+                    <form class="book-form" method="get" action="/SearchMain">
 
                         <div class="form-item select-group">
 
                             <label for="button">Where are you going?</label>
-                            <select id="city" name="cityVal">
+                            <select id="city" name="city">
                                 <option value="Erbil">Erbil</option>
                                 <option value="Sulaymaniyah">Sulaymaniyah</option>
                                 <option value="Duhok">Duhok</option>
@@ -69,11 +69,11 @@
 
                         <div class="form-item">
                             <label for="adult">Adults: </label>
-                            <input type="number" min="1" value="1" id="adult" name="adultNum">
+                            <input type="number" min="1" value="1" id="adult" name="adults">
                         </div>
                         <div class="form-item">
                             <label for="rooms">Rooms: </label>
-                            <input type="number" min="1" value="1" name="roomNum">
+                            <input type="number" min="1" value="1" name="rooms">
                         </div>
                         <div class="form-item">
                             <input type="submit" class="btn-search fas fa-search" value="search" style="padding-right:28rem;">

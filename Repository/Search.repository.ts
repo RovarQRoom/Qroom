@@ -10,9 +10,9 @@ export class SearchRepository implements ISearchRepository {
     this.searchModel = Hotels;
   }
 
-  async find(search: string): Promise<Document[]> {
+  async find(search: any): Promise<Document[]> {
     try {
-      const searchResult = await this.searchModel.find({ $text: { $search: search } });
+      const searchResult = await this.searchModel.find({Name:{$regex:new RegExp(".*"+search+".*",'i')}}).limit(7).exec();
       return searchResult;
     } catch (error) {
       throw new Error(`Failed to get search result: ${error}`);
