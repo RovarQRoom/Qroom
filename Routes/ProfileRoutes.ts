@@ -1,5 +1,5 @@
 import express from "express";
-import { PictureWebpage, Profile, ProfileDataUpdate, ProfilePictureUpdate } from "../Controller/ProfileController";
+import { PictureWebpage, Profile, ProfileDataUpdate, ProfilePictureUpdate } from "../Controller";
 import { verifyTokenMiddleware } from "../Middleware";
 
 const router = express.Router();

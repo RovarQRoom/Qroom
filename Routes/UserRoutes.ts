@@ -1,5 +1,5 @@
 import express from "express";
-import { Login_Get, Login_Post, Logout_Get, Signup_Get, Signup_Post } from "../Controller/UsersController";
+import { Login_Get, Login_Post, Logout_Get, Signup_Get, Signup_Post } from "../Controller";
 const router = express.Router();
 
 router.get("/Signup", Signup_Get);

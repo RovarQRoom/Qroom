@@ -28,6 +28,7 @@ export function sendEmailMiddleware(options: EmailOptions) {
         text: options.text
       };
   
+      //Todo: Failed to send email: Error: Username and Password not accepted.
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           console.error(`Failed to send email: ${error}`);

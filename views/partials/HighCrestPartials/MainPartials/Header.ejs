@@ -13,12 +13,14 @@
 
 
     <div class="profile">
-        <% if(Image!=undefined){ %>
-            <div id="nav__login-btn" style="padding-right:10px;" onclick="toggleNotification()"><img width="50px" height="50px" src="data:<%=Image.contentType%>;base64,<%=Image.imageBase64 %> " style=" border: 3px solid #fa7b04;border-radius: 50%;" alt="ProfileImage">
-            </div>
+        <% if(user){ %>
+            <% if(user.picture){ %>
+            <div id="nav__login-btn" style="padding-right:10px;" onclick="toggleNotification()"><img width="50px" height="50px" src="../../../<%= user.picture %>" style=" border: 3px solid #fa7b04;border-radius: 50%;" alt="ProfileImage"></div>
             <% }else{ %>
-                <div id="nav__login-btn" class="fas fa-user" onclick="toggleNotification()">
-                </div>
+                <div id="nav__login-btn" class="fas fa-user" onclick="toggleNotification()"></div>
+                <% } %>
+            <% }else{ %>
+                <div id="nav__login-btn" class="fas fa-user" onclick="toggleNotification()"></div>
                 <% } %>
     </div>
     <div class="notification-box" id="notification_Box">
@@ -45,14 +47,10 @@
                 </div>
                 <% } %>
                     <h2>Notification <span>
-                            <% if(Count){ %>
-                                <%= Count %>
-                                    <% }else{ %>
-                                        0
-                                        <% } %>
+                            
                         </span></h2>
                     <% if(user){ %>
-                        <% Events.forEach(event=> {%>
+                        <% user.createdEvent.forEach(event=> {%>
                             <div class="notification-item">
                                 <div class="textBox">
                                     <h4>

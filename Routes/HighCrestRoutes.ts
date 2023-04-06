@@ -1,5 +1,5 @@
 import express from "express";
-import { HighCrestAbout, HighCrestAllRooms, HighCrestBlog, HighCrestChefsProfiles, HighCrestContacts, HighCrestEvents, HighCrestHome, HighCrestPurchase, HighCrestRestaurants, HighCrestRoom, RemoveEvent } from "../Controller/HighCrestController";
+import { HighCrestAbout, HighCrestAllRooms, HighCrestBlog, HighCrestChefsProfiles, HighCrestContacts, HighCrestEvents, HighCrestHome, HighCrestPurchase, HighCrestRestaurants, HighCrestRoom, RemoveEvent } from "../Controller";
 
 
 const router = express.Router();

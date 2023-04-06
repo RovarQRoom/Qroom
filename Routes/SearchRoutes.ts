@@ -1,5 +1,5 @@
 import express from "express";
-import {Search, SearchResult, SearchResultMain}  from "../Controller/SearchController";
+import {Search, SearchResult, SearchResultMain}  from "../Controller";
 import { verifyTokenMiddleware }  from "../Middleware";
 
 const router = express.Router();
