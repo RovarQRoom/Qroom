@@ -1,8 +1,9 @@
 import { UserRepository } from '../Repository/';
 import { CreateUserDto, UpdateUserDto, DeleteUserDto } from '../Dtos/Users.dto';
 import { Document } from 'mongoose';
+import { IUsersService } from '../Interface/service-interface';
 
-export class UserService {
+export class UserService implements IUsersService {
   private userRepository: UserRepository;
 
   constructor(userRepository: UserRepository) {

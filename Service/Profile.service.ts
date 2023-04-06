@@ -1,4 +1,4 @@
-import { ProfileServiceInterface } from '../Interface';
+import { ProfileServiceInterface } from '../Interface/service-interface';
 import { ProfileRepository } from '../Repository/';
 import { Document } from 'mongoose';
 

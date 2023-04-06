@@ -1,8 +1,9 @@
 import { Model, Document } from 'mongoose';
 import { UserSignUp, IUser } from '../models';
 import { MongoDbExceptions } from '../ExceptionHandling';
+import { IProfileRepository } from '../Interface/repository-interface';
 
-export class ProfileRepository {
+export class ProfileRepository implements IProfileRepository {
   private userModel: Model<IUser>;
   private mongoDbExceptions: MongoDbExceptions;
 
