@@ -36,8 +36,10 @@ export const ProfilePictureUpdate = async(req:Request, res:Response, next:NextFu
             }).catch((err)=>{
                 console.log(err);
             })
-
-            res.status(200).json({message: "File Uploaded"});
+            console.log("File Uploaded");
+            
+            res.status(200).redirect(`/Profile/${id}`);
+            
         }
     })
 }
