@@ -6,6 +6,6 @@ const router = express.Router();
 
 
 router.get("/Search",Search);
-router.get("/SearchMain", verifyTokenMiddleware ,SearchResultMain);
+router.get("/SearchMain",SearchResultMain);
 
 export {router as SearchRoutes};
